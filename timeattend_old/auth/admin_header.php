@@ -44,6 +44,14 @@ include_once('../includes/config.php');
 
     <link href="../lib/datatables.net-dt/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="../lib/datatables.net-responsive-dt/css/responsive.dataTables.min.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./css/admin/styles.css?rand=<?php echo rand(); ?>"> -->
+    <!-- <link rel="stylesheet" href="<?php echo $localUrl; ?>css/admin/admin.css?rand=<?php echo rand(); ?>"> -->
+
+
+    <link href=".../assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+    <link href=".../assets/plugins/global/style.bundle.css" rel="stylesheet" type="text/css" />
+
+
     <link rel="stylesheet" href="<?php echo $localUrl; ?>css/admin/styles.css?rand=<?php echo rand(); ?>">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -51,5 +59,10 @@ include_once('../includes/config.php');
         body {
             font-family: system-ui;
         }
+
+        /* 
+        .odd td {
+            border-bottom: 1px solid grey;
+        } */
     </style>
 </head>
