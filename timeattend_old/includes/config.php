@@ -85,7 +85,8 @@ if ($thepagename == "dashboard.php") {
          border-0
         w-[101px] py-[1px]";
 
-  $therealpagename = "User Enrollment";
+  $therealpagename = "Employees";
+  // $therealpagename = "User Enrollment";
   if ($thepagename == "employeelist.php" || $thepagename == "employedata.php") {
     $where2a = "active show here bg-[#E6F8FD]";
     $activeTextColor = 'active-color';

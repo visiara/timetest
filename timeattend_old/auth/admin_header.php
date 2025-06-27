@@ -44,12 +44,47 @@ include_once('../includes/config.php');
 
     <link href="../lib/datatables.net-dt/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="../lib/datatables.net-responsive-dt/css/responsive.dataTables.min.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./css/admin/styles.css?rand=<?php echo rand(); ?>"> -->
+    <!-- <link rel="stylesheet" href="<?php echo $localUrl; ?>css/admin/admin.css?rand=<?php echo rand(); ?>"> -->
+
+
+    <link href=".../assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+    <link href=".../assets/plugins/global/style.bundle.css" rel="stylesheet" type="text/css" />
+
+
     <link rel="stylesheet" href="<?php echo $localUrl; ?>css/admin/styles.css?rand=<?php echo rand(); ?>">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
             font-family: system-ui;
+        }
+
+        /* 
+        .odd td {
+            border-bottom: 1px solid grey;
+        } */
+
+        .btn-primary {
+            color: white !important;
+        }
+
+        .overlay-card {
+            max-width: 900px;
+            margin: 60px auto;
+            box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.08);
+            border-radius: 1rem;
+        }
+
+        .border-divider {
+            height: 2px;
+            background-color: #eee;
+        }
+
+        .scroll-handle {
+            width: 13px;
+            height: 25px;
+            background-color: #c1c1c1;
         }
     </style>
 </head>
