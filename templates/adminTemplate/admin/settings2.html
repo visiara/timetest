@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdminSettings</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: system-ui;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex flex-col bg-white">
+        <div class="self-stretch bg-neutral-100 h-[1171px]">
+            <div class="flex items-center self-stretch my-4 mx-2 gap-4">
+                <div class="flex flex-col shrink-0 items-start relative">
+                    <div
+                        class="flex flex-col items-start bg-white pb-[13px] rounded-[20px] border border-solid border-stone-200">
+                        <div class="flex items-center p-4 mb-7 gap-2.5">
+                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/ip7w7ghz_expires_30_days.png"
+                                class="w-[204px] h-10 object-fill" />
+                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/aqq7tz4n_expires_30_days.png"
+                                class="w-6 h-6 object-fill" />
+                        </div>
+                        <div class="flex items-center bg-white p-3 mb-7 mx-3 rounded-2xl border border-solid border-stone-200"
+                            style="box-shadow: 0px 1px 2px #0A0C120D">
+                            <div class="flex shrink-0 items-center gap-3">
+                                <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/zqub6o3d_expires_30_days.png"
+                                    class="w-10 h-10 object-fill" />
+                                <div class="flex flex-col shrink-0 items-start">
+                                    <span class="text-slate-900 text-sm font-bold my-1 ml-[1px] mr-[61px]">
+                                        Maria Afolabi
+                                    </span>
+                                    <span class="text-stone-600 text-sm">
+                                        Unit Head
+                                    </span>
+                                </div>
+                            </div>
+                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/8oe3jq1f_expires_30_days.png"
+                                class="w-4 h-4 rounded-2xl object-fill" />
+                        </div>
+                        <div class="flex items-center py-3 px-4 mb-1 mx-3 gap-2.5 rounded-xl">
+                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/bw8uqjig_expires_30_days.png"
+                                class="w-5 h-5 rounded-xl object-fill" />
+                            <span class="text-stone-500 text-sm font-bold">
+                                Dashboard
+                            </span>
+                        </div>
+                        <div class="flex items-center py-3 px-4 mb-1 mx-3 gap-2.5 rounded-xl">
+                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/1v6zmeea_expires_30_days.png"
+                                class="w-5 h-5 rounded-xl object-fill" />
+                            <span class="text-stone-500 text-sm font-bold">
+                                My department
+                            </span>
+                        </div>
+                        <div class="flex items-center py-3 px-4 mb-1 mx-3 gap-2.5 rounded-xl">
+                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/61lpo138_expires_30_days.png"
+                                class="w-5 h-5 rounded-xl object-fill" />
+                            <span class="text-stone-500 text-sm font-bold">
+                                Employees
+                            </span>
+                        </div>
+                        <div class="flex items-center py-3 px-4 mb-1 mx-3 gap-2.5 rounded-xl">
+                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/dbl3208h_expires_30_days.png"
+                                class="w-5 h-5 rounded-xl object-fill" />
+                            <span class="text-stone-500 text-sm font-bold">
+                                Attendance
+                            </span>
+                        </div>
+                        <div class="flex items-center py-3 px-4 mb-1 mx-3 gap-2.5 rounded-xl">
+                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/k64vc28d_expires_30_days.png"
+                                class="w-5 h-5 rounded-xl object-fill" />
+                            <span class="text-stone-500 text-sm font-bold">
+                                Report
+                            </span>
+                        </div>
+                        <div class="flex items-center bg-[#E6F8FD] py-3 px-4 mb-1 mx-3 gap-2.5 rounded-xl">
+                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/fe5zntia_expires_30_days.png"
+                                class="w-5 h-5 rounded-xl object-fill" />
+                            <input type="text" placeholder="Administrators"
+                                class="text-[#0592BA] bg-transparent text-sm font-bold w-[101px] py-[1px] border-0" />
+                        </div>
+                        <div class="flex items-center py-3 px-4 mb-1 mx-3 gap-2.5 rounded-xl">
+                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/kkb5x2qo_expires_30_days.png"
+                                class="w-5 h-5 rounded-xl object-fill" />
+                            <span class="text-stone-500 text-sm font-bold">
+                                Organization
+                            </span>
+                        </div>
+                        <div class="flex items-center py-3 px-4 mb-1 mx-3 gap-2.5 rounded-xl">
+                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/jluly1xl_expires_30_days.png"
+                                class="w-5 h-5 rounded-xl object-fill" />
+                            <span class="text-stone-500 text-sm font-bold">
+                                Salary Management
+                            </span>
+                        </div>
+                        <div class="flex items-center py-3 px-4 mb-1 mx-3 gap-2.5 rounded-xl">
+                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/srd0yipq_expires_30_days.png"
+                                class="w-5 h-5 rounded-xl object-fill" />
+                            <span class="text-stone-500 text-sm font-bold">
+                                KPI Management
+                            </span>
+                        </div>
+                        <div class="flex items-center py-3 px-4 mb-1 mx-3 gap-2.5 rounded-xl">
+                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/jd763v6v_expires_30_days.png"
+                                class="w-5 h-5 rounded-xl object-fill" />
+                            <span class="text-stone-500 text-sm font-bold">
+                                Recruitment
+                            </span>
+                        </div>
+                        <div class="flex items-center py-3 px-4 mb-1 mx-3 gap-2.5 rounded-xl">
+                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/iihkwtd5_expires_30_days.png"
+                                class="w-5 h-5 rounded-xl object-fill" />
+                            <span class="text-stone-500 text-sm font-bold">
+                                File manager
+                            </span>
+                        </div>
+                        <div class="flex items-center py-3 px-4 mb-1 mx-3 gap-2.5 rounded-xl">
+                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/q1bbcexi_expires_30_days.png"
+                                class="w-5 h-5 rounded-xl object-fill" />
+                            <span class="text-stone-500 text-sm font-bold">
+                                Biometrics data
+                            </span>
+                        </div>
+                        <div class="flex items-center py-3 px-4 mb-1 mx-3 gap-2.5 rounded-xl">
+                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/svgai62t_expires_30_days.png"
+                                class="w-5 h-5 rounded-xl object-fill" />
+                            <span class="text-stone-500 text-sm font-bold">
+                                Settings
+                            </span>
+                        </div>
+                        <div class="flex items-center py-3 px-4 mb-1 mx-3 gap-2.5 rounded-xl">
+                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/5ulf43ao_expires_30_days.png"
+                                class="w-5 h-5 rounded-xl object-fill" />
+                            <span class="text-stone-500 text-sm font-bold">
+                                SMS configuration
+                            </span>
+                        </div>
+                        <div class="flex items-center py-3 px-4 mb-2.5 mx-3 gap-2.5 rounded-xl">
+                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/gl3xoe3p_expires_30_days.png"
+                                class="w-5 h-5 rounded-xl object-fill" />
+                            <span class="text-stone-600 text-sm font-bold">
+                                Sign Out
+                            </span>
+                        </div>
+                        <span class="text-stone-400 text-xs ml-7">
+                            HeckerPeople App V1.0.0
+                        </span>
+                    </div>
+                    <span class="text-stone-400 text-xs absolute bottom-[-9px] left-7">
+                        © Heckerbella Ltd 2025
+                    </span>
+                </div>
+                <div class="flex-1 items-start relative">
+                    <div class="self-stretch bg-white rounded-[20px] border border-solid border-stone-200">
+                        <div class="flex items-start self-stretch mt-5 mb-9 mx-5">
+                            <span class="text-slate-900 text-2xl font-bold mb-4 mr-[359px]">
+                                Adminstrator
+                            </span>
+                            <div class="flex-1 h-[52px]">
+                            </div>
+                        </div>
+                        <div class="flex flex-col self-stretch gap-4">
+                            <div class="flex flex-col items-start self-stretch py-[1px] mx-8">
+                                <div class="flex items-start">
+                                    <span class="text-stone-400 text-sm font-bold my-3 mx-4">
+                                        Admin User
+                                    </span>
+                                    <span class="text-stone-400 text-sm font-bold my-3 mx-[17px]">
+                                        Device User
+                                    </span>
+                                    <button
+                                        class="flex flex-col shrink-0 items-start bg-[#06B6E9] text-left py-2 px-4 rounded-tl rounded-tr border-0"
+                                        onclick="alert('Pressed!')" }>
+                                        <span class="text-white text-sm font-bold">
+                                            Admin Settings
+                                        </span>
+                                    </button>
+                                </div>
+                                <div class="bg-stone-200 w-[378px] h-[1px]">
+                                </div>
+                            </div>
+                            <div class="flex items-center self-stretch mx-8">
+                                <span class="text-stone-600 text-sm mr-[399px]">
+                                    Showing all User roles
+                                </span>
+                                <div class="flex flex-1 items-start">
+                                    <button
+                                        class="flex shrink-0 items-start bg-white text-left py-2 px-4 ml-5 mr-4 rounded-[100000px] border border-solid border-stone-200"
+                                        style="box-shadow: 0px 1px 2px #0A0C120D" onclick="alert('Pressed!')" }>
+                                        <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/bjrqwr2g_expires_30_days.png"
+                                            class="w-5 h-5 mr-2 rounded-[100000px] object-fill" />
+                                        <span class="text-slate-900 text-sm font-bold mr-[11px]">
+                                            Filters
+                                        </span>
+                                        <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/tgp6syka_expires_30_days.png"
+                                            class="w-5 h-5 rounded-[100000px] object-fill" />
+                                    </button>
+                                    <div class="flex flex-1 items-center bg-white py-[7px] px-3 mr-4 gap-2 rounded-xl border border-solid border-stone-200"
+                                        style="box-shadow: 0px 1px 2px #0A0C120D">
+                                        <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/7xcjrvb4_expires_30_days.png"
+                                            class="w-[18px] h-[18px] object-fill" />
+                                        <input type="text" placeholder="Search keyword"
+                                            class="flex-1 self-stretch text-stone-400 bg-transparent text-sm border-0" />
+                                    </div>
+                                    <button
+                                        class="flex shrink-0 items-center bg-[#06B6E9] text-left py-2 px-3 gap-2 rounded-[100000px] border-0"
+                                        onclick="alert('Pressed!')" }>
+                                        <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/75ufhxjg_expires_30_days.png"
+                                            class="w-4 h-4 rounded-[100000px] object-fill" />
+                                        <span class="text-white text-sm font-bold">
+                                            Add User Role
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="self-stretch pt-5 pb-[155px] mx-8">
+                                <div
+                                    class="flex items-start self-stretch rounded-xl border border-solid border-stone-200">
+                                    <div
+                                        class="flex flex-1 flex-col items-start bg-[#F5F5F599] py-5 mr-[17px] gap-5 rounded-lg border border-solid border-stone-200">
+                                        <div class="flex flex-col items-start self-stretch px-3 mx-2">
+                                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/5lqzofw9_expires_30_days.png"
+                                                class="w-8 h-8 object-fill" />
+                                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/kxm68t8r_expires_30_days.png"
+                                                class="w-8 h-8 ml-[26px] object-fill" />
+                                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/f0us82ur_expires_30_days.png"
+                                                class="w-8 h-8 ml-[52px] object-fill" />
+                                            <div class="flex flex-col items-center self-stretch">
+                                                <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/b2lyk9s3_expires_30_days.png"
+                                                    class="w-8 h-8 object-fill" />
+                                            </div>
+                                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/g2ib7cd9_expires_30_days.png"
+                                                class="w-8 h-8 ml-[104px] object-fill" />
+                                            <div class="flex flex-col items-end self-stretch">
+                                                <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/pr0ub79i_expires_30_days.png"
+                                                    class="w-8 h-8 mr-[26px] object-fill" />
+                                            </div>
+                                            <div class="flex flex-col items-end self-stretch">
+                                                <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/srrf3fwe_expires_30_days.png"
+                                                    class="w-8 h-8 object-fill" />
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col self-stretch mx-2 gap-2">
+                                            <div class="flex items-start self-stretch gap-2">
+                                                <span class="text-stone-600 text-sm">
+                                                    Role:
+                                                </span>
+                                                <span class="flex-1 text-slate-900 text-sm font-bold">
+                                                    Adminstrator
+                                                </span>
+                                            </div>
+                                            <div class="flex items-start self-stretch gap-2">
+                                                <span class="text-stone-600 text-sm">
+                                                    Permission:
+                                                </span>
+                                                <span class="flex-1 text-slate-900 text-sm font-bold">
+                                                    Super Admin
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col items-start bg-[#26262680] py-2 px-3 ml-2">
+                                            <span class="text-[#005FAD] text-sm font-bold">
+                                                View users
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="flex flex-1 flex-col items-start py-5 mr-[17px] rounded-lg border border-solid border-stone-200">
+                                        <div class="flex flex-col items-start self-stretch px-[11px] mb-5 mx-2">
+                                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/un2w5dth_expires_30_days.png"
+                                                class="w-8 h-8 object-fill" />
+                                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/6d0go2ba_expires_30_days.png"
+                                                class="w-8 h-8 ml-[26px] object-fill" />
+                                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/sr8ovrxi_expires_30_days.png"
+                                                class="w-8 h-8 ml-[52px] object-fill" />
+                                            <div class="flex flex-col items-center self-stretch">
+                                                <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/e7urqsww_expires_30_days.png"
+                                                    class="w-8 h-8 object-fill" />
+                                            </div>
+                                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/pgqs71j6_expires_30_days.png"
+                                                class="w-8 h-8 ml-[104px] object-fill" />
+                                            <div class="flex flex-col items-end self-stretch">
+                                                <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/g3vdkw5i_expires_30_days.png"
+                                                    class="w-8 h-8 mr-[26px] object-fill" />
+                                            </div>
+                                            <div class="flex flex-col items-end self-stretch">
+                                                <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/nz711j0u_expires_30_days.png"
+                                                    class="w-8 h-8 object-fill" />
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center mb-[9px] ml-[7px] gap-2">
+                                            <span class="text-stone-600 text-sm">
+                                                Role:
+                                            </span>
+                                            <span class="text-slate-900 text-sm font-bold">
+                                                Business Management
+                                            </span>
+                                        </div>
+                                        <div class="flex items-center mb-[21px] ml-[7px] gap-2">
+                                            <span class="text-stone-600 text-sm">
+                                                Permission:
+                                            </span>
+                                            <span class="text-slate-900 text-sm font-bold">
+                                                Admin
+                                            </span>
+                                        </div>
+                                        <div class="flex flex-col items-start bg-[#26262680] py-2 px-[11px] ml-2">
+                                            <span class="text-[#005FAD] text-sm font-bold">
+                                                View users
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="flex flex-1 flex-col items-start py-5 mr-4 rounded-lg border border-solid border-stone-200">
+                                        <div class="flex flex-col items-start self-stretch px-[11px] mb-5 mx-2">
+                                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/rqykk0yh_expires_30_days.png"
+                                                class="w-8 h-8 object-fill" />
+                                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/1kxgnibn_expires_30_days.png"
+                                                class="w-8 h-8 ml-[26px] object-fill" />
+                                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/us3m1ipo_expires_30_days.png"
+                                                class="w-8 h-8 ml-[52px] object-fill" />
+                                            <div class="flex flex-col items-center self-stretch">
+                                                <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/m84ilda8_expires_30_days.png"
+                                                    class="w-8 h-8 object-fill" />
+                                            </div>
+                                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/41tck5qi_expires_30_days.png"
+                                                class="w-8 h-8 ml-[104px] object-fill" />
+                                            <div class="flex flex-col items-end self-stretch">
+                                                <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/roj7t6bl_expires_30_days.png"
+                                                    class="w-8 h-8 mr-[26px] object-fill" />
+                                            </div>
+                                            <div class="flex flex-col items-end self-stretch">
+                                                <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/ucb16rit_expires_30_days.png"
+                                                    class="w-8 h-8 object-fill" />
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center mb-[9px] ml-[7px] gap-2">
+                                            <span class="text-stone-600 text-sm">
+                                                Role:
+                                            </span>
+                                            <span class="text-slate-900 text-sm font-bold">
+                                                Social Manager
+                                            </span>
+                                        </div>
+                                        <div class="flex items-center mb-[21px] ml-[7px] gap-2">
+                                            <span class="text-stone-600 text-sm">
+                                                Permission:
+                                            </span>
+                                            <span class="text-slate-900 text-sm font-bold">
+                                                Admin
+                                            </span>
+                                        </div>
+                                        <div class="flex flex-col items-start bg-[#26262680] py-2 px-[11px] ml-2">
+                                            <span class="text-[#005FAD] text-sm font-bold">
+                                                View users
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="flex flex-1 flex-col items-start py-5 gap-5 rounded-lg border border-solid border-stone-200">
+                                        <div class="flex flex-col items-start self-stretch px-3 mx-2">
+                                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/j65rwpq5_expires_30_days.png"
+                                                class="w-8 h-8 object-fill" />
+                                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/i4i4k6bc_expires_30_days.png"
+                                                class="w-8 h-8 ml-[26px] object-fill" />
+                                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/f4uu9ht5_expires_30_days.png"
+                                                class="w-8 h-8 ml-[52px] object-fill" />
+                                            <div class="flex flex-col items-center self-stretch">
+                                                <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/05avhmmn_expires_30_days.png"
+                                                    class="w-8 h-8 object-fill" />
+                                            </div>
+                                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/sqzsbi8j_expires_30_days.png"
+                                                class="w-8 h-8 ml-[104px] object-fill" />
+                                            <div class="flex flex-col items-end self-stretch">
+                                                <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/0y0g451c_expires_30_days.png"
+                                                    class="w-8 h-8 mr-[26px] object-fill" />
+                                            </div>
+                                            <div class="flex flex-col items-end self-stretch">
+                                                <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/pp4qbeku_expires_30_days.png"
+                                                    class="w-8 h-8 object-fill" />
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col self-stretch mx-2 gap-2">
+                                            <div class="flex items-start self-stretch gap-2">
+                                                <span class="text-stone-600 text-sm">
+                                                    Role:
+                                                </span>
+                                                <span class="flex-1 text-slate-900 text-sm font-bold">
+                                                    Admins trator
+                                                </span>
+                                            </div>
+                                            <div class="flex items-start self-stretch gap-2">
+                                                <span class="text-stone-600 text-sm">
+                                                    Permission:
+                                                </span>
+                                                <span class="text-slate-900 text-sm font-bold">
+                                                    Operator
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col items-start bg-[#26262680] py-2 px-3 ml-2">
+                                            <span class="text-[#005FAD] text-sm font-bold">
+                                                View users
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col self-stretch pt-7 gap-4">
+                                    <div class="flex items-center self-stretch">
+                                        <span class="text-stone-600 text-sm font-bold ml-3 mr-[22px]">
+                                            Showing all users for this role
+                                        </span>
+                                        <div class="flex flex-1 flex-col items-end">
+                                            <div class="flex items-center bg-white w-[250px] py-2 px-3 gap-2 rounded-xl border border-solid border-stone-200"
+                                                style="box-shadow: 0px 1px 2px #0A0C120D">
+                                                <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/j2qu2cmq_expires_30_days.png"
+                                                    class="w-[18px] h-[18px] object-fill" />
+                                                <input type="text" placeholder="Find employee"
+                                                    class="flex-1 self-stretch text-stone-400 bg-transparent text-sm border-0" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col items-start self-stretch gap-3">
+                                        <div class="flex items-start gap-3">
+                                            <div class="flex shrink-0 items-center py-5 gap-3">
+                                                <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/q7f8e3on_expires_30_days.png"
+                                                    class="w-10 h-10 object-fill" />
+                                                <div class="flex flex-col shrink-0 items-start gap-[1px]">
+                                                    <span class="text-slate-900 text-base font-bold">
+                                                        Corey Anderson
+                                                    </span>
+                                                    <span class="text-stone-600 text-sm">
+                                                        HL012
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="flex shrink-0 items-center py-5 gap-3">
+                                                <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/qe3a5v7y_expires_30_days.png"
+                                                    class="w-10 h-10 object-fill" />
+                                                <div class="flex flex-col shrink-0 items-start">
+                                                    <span class="text-slate-900 text-base font-bold my-1">
+                                                        Ayo Adebisi
+                                                    </span>
+                                                    <span class="text-stone-600 text-sm">
+                                                        HL012
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="flex shrink-0 items-center py-5 gap-3">
+                                                <button
+                                                    class="flex flex-col shrink-0 items-start bg-[#0BB02F] text-left py-[9px] px-[7px] rounded-[100px] border border-solid border-[#1212121A]"
+                                                    onclick="alert('Pressed!')" }>
+                                                    <span class="text-white text-base font-bold">
+                                                        AA
+                                                    </span>
+                                                </button>
+                                                <div class="flex flex-col shrink-0 items-start">
+                                                    <span class="text-slate-900 text-base font-bold my-1">
+                                                        Adeola Afolabi
+                                                    </span>
+                                                    <span class="text-stone-600 text-sm">
+                                                        HL012
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center gap-3">
+                                            <div class="flex shrink-0 items-center py-5 gap-3">
+                                                <button
+                                                    class="flex flex-col shrink-0 items-start bg-rose-500 text-left py-[9px] px-[7px] rounded-[100px] border border-solid border-[#1212121A]"
+                                                    onclick="alert('Pressed!')" }>
+                                                    <span class="text-white text-base font-bold">
+                                                        AA
+                                                    </span>
+                                                </button>
+                                                <div class="flex flex-col shrink-0 items-start">
+                                                    <span class="text-slate-900 text-base font-bold my-1">
+                                                        Amaka Anozie
+                                                    </span>
+                                                    <span class="text-stone-600 text-sm">
+                                                        HL012
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="flex shrink-0 items-center py-5 gap-3">
+                                                <button
+                                                    class="flex flex-col shrink-0 items-start bg-[#06B6E9] text-left py-[9px] px-2 rounded-[100px] border border-solid border-[#1212121A]"
+                                                    onclick="alert('Pressed!')" }>
+                                                    <span class="text-white text-base font-bold">
+                                                        ce
+                                                    </span>
+                                                </button>
+                                                <div class="flex flex-col shrink-0 items-start">
+                                                    <span class="text-slate-900 text-sm font-bold my-1">
+                                                        Chinonso Eze
+                                                    </span>
+                                                    <span class="text-stone-600 text-sm">
+                                                        HL012
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="flex shrink-0 items-center py-5 gap-3">
+                                                <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/pmco6p14_expires_30_days.png"
+                                                    class="w-10 h-10 object-fill" />
+                                                <div class="flex flex-col shrink-0 items-start">
+                                                    <span class="text-slate-900 text-base font-bold my-1 mx-[1px]">
+                                                        Emeka Nwosu
+                                                    </span>
+                                                    <span class="text-stone-600 text-sm">
+                                                        HL012
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start gap-3">
+                                            <div class="flex shrink-0 items-center py-5 gap-3">
+                                                <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/08cd3u5d_expires_30_days.png"
+                                                    class="w-10 h-10 object-fill" />
+                                                <div class="flex flex-col shrink-0 items-start">
+                                                    <span class="text-slate-900 text-base font-bold my-1 mx-[1px]">
+                                                        Layla Taylor
+                                                    </span>
+                                                    <span class="text-stone-600 text-sm">
+                                                        HL012
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="flex shrink-0 items-center py-5 gap-3">
+                                                <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/1n3qtyhz_expires_30_days.png"
+                                                    class="w-10 h-10 object-fill" />
+                                                <div class="flex flex-col shrink-0 items-start gap-[1px]">
+                                                    <span class="text-slate-900 text-base font-bold">
+                                                        Kehinde Ogunleye
+                                                    </span>
+                                                    <span class="text-stone-600 text-sm">
+                                                        HL012
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-stone-200 w-[1436px] h-[1px] absolute top-[91px] left-0">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

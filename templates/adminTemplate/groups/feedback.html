@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overlay</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: system-ui;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex flex-col bg-white">
+        <div class="self-stretch bg-[#0000001A] h-[986px]">
+            <div class="flex flex-col self-stretch bg-white py-5 my-[275px] mx-[400px] rounded-2xl border border-solid border-stone-200"
+                style="box-shadow: 0px 10px 10px #00000008">
+                <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/jdqn1gh6_expires_30_days.png"
+                    class="self-stretch h-[250px] mb-5 mx-5 rounded-2xl object-fill" />
+                <span class="text-stone-600 text-base text-center mb-[21px] mx-5">
+                    {User 1}, {User 2}, {user 3} and {total selected users-3} others have been successfully reassigned
+                    to {Assignment type}: {Value}.
+                </span>
+                <button
+                    class="flex flex-col items-center self-stretch bg-white text-left py-4 mx-5 rounded-[100000px] border border-solid border-stone-200"
+                    style="box-shadow: 0px 1px 2px #0A0C120D" onclick="alert('Pressed!')" }>
+                    <span class="text-slate-900 text-base font-bold">
+                        Close
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

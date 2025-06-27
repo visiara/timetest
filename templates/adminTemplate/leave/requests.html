@@ -1,0 +1,665 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employees/Details/Requests</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: system-ui;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex flex-col bg-white">
+        <div class="flex flex-col items-start self-stretch bg-neutral-100 h-[1049px]">
+            <div class="flex items-center gap-4">
+                <div class="flex flex-col shrink-0 items-start relative pt-4 pb-20 px-2">
+                    <div
+                        class="flex flex-col items-start bg-white pb-[13px] rounded-[20px] border border-solid border-stone-200">
+                        <div class="flex items-center p-4 mb-7 gap-2.5">
+                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/gt5w482c_expires_30_days.png"
+                                class="w-[204px] h-10 object-fill" />
+                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/han2dequ_expires_30_days.png"
+                                class="w-6 h-6 object-fill" />
+                        </div>
+                        <div class="flex items-center bg-white p-3 mb-7 mx-3 rounded-2xl border border-solid border-stone-200"
+                            style="box-shadow: 0px 1px 2px #0A0C120D">
+                            <div class="flex shrink-0 items-center gap-3">
+                                <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/trz6442z_expires_30_days.png"
+                                    class="w-10 h-10 object-fill" />
+                                <div class="flex flex-col shrink-0 items-start">
+                                    <span class="text-slate-900 text-sm font-bold my-1 ml-[1px] mr-[61px]">
+                                        Maria Afolabi
+                                    </span>
+                                    <span class="text-stone-600 text-sm">
+                                        Unit Head
+                                    </span>
+                                </div>
+                            </div>
+                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/vzvzbfnb_expires_30_days.png"
+                                class="w-4 h-4 rounded-2xl object-fill" />
+                        </div>
+                        <div class="flex items-center py-3 px-4 mb-1 mx-3 gap-2.5 rounded-xl">
+                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/3hy4kzlk_expires_30_days.png"
+                                class="w-5 h-5 rounded-xl object-fill" />
+                            <span class="text-stone-500 text-sm font-bold">
+                                Dashboard
+                            </span>
+                        </div>
+                        <div class="flex items-center py-3 px-4 mb-1 mx-3 gap-2.5 rounded-xl">
+                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/ur2hxgkf_expires_30_days.png"
+                                class="w-5 h-5 rounded-xl object-fill" />
+                            <span class="text-stone-500 text-sm font-bold">
+                                My department
+                            </span>
+                        </div>
+                        <div class="flex items-center py-3 px-4 mb-1 mx-3 gap-2.5 rounded-xl">
+                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/g4k68k23_expires_30_days.png"
+                                class="w-5 h-5 rounded-xl object-fill" />
+                            <span class="text-stone-500 text-sm font-bold">
+                                Employees
+                            </span>
+                        </div>
+                        <div class="flex items-center bg-[#E6F8FD] py-3 px-4 mb-1 mx-3 gap-2.5 rounded-xl">
+                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/d2k7qnv5_expires_30_days.png"
+                                class="w-5 h-5 rounded-xl object-fill" />
+                            <input type="text" placeholder="Attendance"
+                                class="text-[#0592BA] bg-transparent text-sm font-bold w-[79px] py-[1px] border-0" />
+                        </div>
+                        <div class="flex items-center py-3 px-4 mb-1 mx-3 gap-2.5 rounded-xl">
+                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/r3j028w6_expires_30_days.png"
+                                class="w-5 h-5 rounded-xl object-fill" />
+                            <span class="text-stone-500 text-sm font-bold">
+                                Report
+                            </span>
+                        </div>
+                        <div class="flex items-center py-3 px-4 mb-1 mx-3 gap-2.5 rounded-xl">
+                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/cz7tmfuf_expires_30_days.png"
+                                class="w-5 h-5 rounded-xl object-fill" />
+                            <span class="text-stone-500 text-sm font-bold">
+                                Administrators
+                            </span>
+                        </div>
+                        <div class="flex items-center py-3 px-4 mb-1 mx-3 gap-2.5 rounded-xl">
+                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/p80apnqb_expires_30_days.png"
+                                class="w-5 h-5 rounded-xl object-fill" />
+                            <span class="text-stone-500 text-sm font-bold">
+                                Organization
+                            </span>
+                        </div>
+                        <div class="flex items-center py-3 px-4 mb-1 mx-3 gap-2.5 rounded-xl">
+                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/60vktqtf_expires_30_days.png"
+                                class="w-5 h-5 rounded-xl object-fill" />
+                            <span class="text-stone-500 text-sm font-bold">
+                                Salary Management
+                            </span>
+                        </div>
+                        <div class="flex items-center py-3 px-4 mb-1 mx-3 gap-2.5 rounded-xl">
+                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/xvy9708d_expires_30_days.png"
+                                class="w-5 h-5 rounded-xl object-fill" />
+                            <span class="text-stone-500 text-sm font-bold">
+                                KPI Management
+                            </span>
+                        </div>
+                        <div class="flex items-center py-3 px-4 mb-1 mx-3 gap-2.5 rounded-xl">
+                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/zbg980f9_expires_30_days.png"
+                                class="w-5 h-5 rounded-xl object-fill" />
+                            <span class="text-stone-500 text-sm font-bold">
+                                Recruitment
+                            </span>
+                        </div>
+                        <div class="flex items-center py-3 px-4 mb-1 mx-3 gap-2.5 rounded-xl">
+                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/fs6wuja2_expires_30_days.png"
+                                class="w-5 h-5 rounded-xl object-fill" />
+                            <span class="text-stone-500 text-sm font-bold">
+                                File manager
+                            </span>
+                        </div>
+                        <div class="flex items-center py-3 px-4 mb-1 mx-3 gap-2.5 rounded-xl">
+                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/3z9awzhf_expires_30_days.png"
+                                class="w-5 h-5 rounded-xl object-fill" />
+                            <span class="text-stone-500 text-sm font-bold">
+                                Biometrics data
+                            </span>
+                        </div>
+                        <div class="flex items-center py-3 px-4 mb-1 mx-3 gap-2.5 rounded-xl">
+                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/jcti6r8t_expires_30_days.png"
+                                class="w-5 h-5 rounded-xl object-fill" />
+                            <span class="text-stone-500 text-sm font-bold">
+                                Settings
+                            </span>
+                        </div>
+                        <div class="flex items-center py-3 px-4 mb-1 mx-3 gap-2.5 rounded-xl">
+                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/sfdo4bfj_expires_30_days.png"
+                                class="w-5 h-5 rounded-xl object-fill" />
+                            <span class="text-stone-500 text-sm font-bold">
+                                SMS configuration
+                            </span>
+                        </div>
+                        <div class="flex items-center py-3 px-4 mb-2.5 mx-3 gap-2.5 rounded-xl">
+                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/9sq58c3p_expires_30_days.png"
+                                class="w-5 h-5 rounded-xl object-fill" />
+                            <span class="text-stone-600 text-sm font-bold">
+                                Sign Out
+                            </span>
+                        </div>
+                        <span class="text-stone-400 text-xs ml-7">
+                            HeckerPeople App V1.0.0
+                        </span>
+                    </div>
+                    <span class="text-stone-400 text-xs absolute bottom-[71px] left-9">
+                        © Heckerbella Ltd 2025
+                    </span>
+                </div>
+                <div class="flex flex-col shrink-0 items-center">
+                    <div
+                        class="bg-[#26262608] w-[1162px] h-3 mx-5 rounded-tl-[20px] rounded-tr-[20px] border border-solid border-[#1212120D]">
+                    </div>
+                    <div class="flex flex-col items-start relative">
+                        <div
+                            class="flex flex-col items-center bg-white rounded-[20px] border border-solid border-stone-200">
+                            <div class="flex items-center my-[22px] mx-5">
+                                <div class="flex shrink-0 items-start pr-[226px] mr-2.5 gap-1">
+                                    <div class="flex shrink-0 items-center my-0.5 gap-0.5">
+                                        <span class="text-stone-400 text-base font-bold">
+                                            Attendance
+                                        </span>
+                                        <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/igy6dnes_expires_30_days.png"
+                                            class="w-[21px] h-6 object-fill" />
+                                    </div>
+                                    <span class="text-slate-900 text-xl font-bold mb-[1px]">
+                                        Leave and exemptions
+                                    </span>
+                                </div>
+                                <button
+                                    class="flex shrink-0 items-center bg-[#06B6E9] text-left py-[13px] px-5 ml-[450px] gap-2 rounded-[100000px] border-0"
+                                    onclick="alert('Pressed!')" }>
+                                    <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/kxjhkr0k_expires_30_days.png"
+                                        class="w-5 h-5 rounded-[100000px] object-fill" />
+                                    <span class="text-white text-base font-bold">
+                                        Create
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="flex flex-col items-start pt-5 pb-[46px]">
+                                <div class="flex items-center bg-neutral-100 p-1 ml-5 rounded-xl">
+                                    <div
+                                        class="flex shrink-0 items-center bg-white py-2 px-[25px] rounded-lg border border-solid border-stone-100">
+                                        <input type="text" placeholder="Requests"
+                                            class="text-slate-900 bg-transparent text-sm font-bold w-[73px] py-[5px] border-0" />
+                                        <div
+                                            class="flex flex-col shrink-0 items-start bg-[#DE1135] py-0.5 px-2 rounded-2xl">
+                                            <span class="text-white text-sm font-bold">
+                                                321
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <span class="text-stone-400 text-sm font-bold my-2 mx-6">
+                                        Leave history
+                                    </span>
+                                    <span class="text-stone-400 text-sm font-bold my-2 mx-6">
+                                        Exemption history
+                                    </span>
+                                </div>
+                                <div class="flex flex-col items-start pt-7 mx-5 gap-4">
+                                    <div class="flex items-center">
+                                        <span class="text-stone-600 text-sm mr-[261px]">
+                                            Showing all 321 Leave and Exemption requests
+                                        </span>
+                                        <div class="flex shrink-0 items-center pl-[130px] gap-4">
+                                            <div class="flex shrink-0 items-center gap-1.5">
+                                                <span class="text-slate-900 text-sm font-bold">
+                                                    3 conflicting requests
+                                                </span>
+                                                <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/qzozh9w5_expires_30_days.png"
+                                                    class="w-5 h-5 object-fill" />
+                                            </div>
+                                            <div class="flex shrink-0 items-center bg-white py-2 px-3 gap-2 rounded-xl border border-solid border-stone-200"
+                                                style="box-shadow: 0px 1px 2px #0A0C120D">
+                                                <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/pk6nazth_expires_30_days.png"
+                                                    class="w-[18px] h-[18px] object-fill" />
+                                                <input type="text" placeholder="Search"
+                                                    class="text-stone-400 bg-transparent text-sm w-[200px] border-0" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col items-start">
+                                        <div class="flex items-center py-5 mx-4 gap-5">
+                                            <div class="flex shrink-0 items-start gap-3">
+                                                <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/4o2n7rah_expires_30_days.png"
+                                                    class="w-10 h-10 object-fill" />
+                                                <div class="flex flex-col shrink-0 items-start gap-1.5">
+                                                    <div class="flex flex-col items-start gap-0.5">
+                                                        <span class="text-slate-900 text-base font-bold">
+                                                            Obinna Eze
+                                                        </span>
+                                                        <span class="text-stone-600 text-sm">
+                                                            Chief Product Visionary
+                                                        </span>
+                                                    </div>
+                                                    <button
+                                                        class="flex flex-col items-start bg-neutral-100 text-left py-0.5 px-3 rounded-2xl border-0"
+                                                        onclick="alert('Pressed!')" }>
+                                                        <span class="text-slate-900 text-sm font-bold">
+                                                            Technology
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="flex flex-col shrink-0 items-start gap-2">
+                                                <div class="flex items-center">
+                                                    <span class="text-stone-600 text-sm mr-2">
+                                                        Request type:
+                                                    </span>
+                                                    <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/r63z8vmp_expires_30_days.png"
+                                                        class="w-2 h-2 mr-1 object-fill" />
+                                                    <span class="text-slate-900 text-sm font-bold">
+                                                        Exemption
+                                                    </span>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <span class="text-stone-600 text-sm mr-[7px]">
+                                                        Duration:
+                                                    </span>
+                                                    <span class="text-slate-900 text-sm font-bold mr-1.5">
+                                                        July 10, 2025 - August 5, 2025
+                                                    </span>
+                                                    <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/r1usc6sw_expires_30_days.png"
+                                                        class="w-5 h-5 object-fill" />
+                                                </div>
+                                                <div class="flex items-center gap-[7px]">
+                                                    <span class="text-stone-600 text-sm">
+                                                        Ref ID:
+                                                    </span>
+                                                    <span class="text-stone-600 text-sm mb-[1px]">
+                                                        LV-2025-0710-0012
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="flex shrink-0 items-start pl-5 gap-4">
+                                                <button
+                                                    class="flex shrink-0 items-center bg-[#E7F7EA] text-left py-[13px] px-5 gap-2.5 rounded-[100000px] border-0"
+                                                    onclick="alert('Pressed!')" }>
+                                                    <span class="text-[#0BB02F] text-base font-bold">
+                                                        Approve
+                                                    </span>
+                                                    <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/5rvdgfz1_expires_30_days.png"
+                                                        class="w-5 h-5 rounded-[100000px] object-fill" />
+                                                </button>
+                                                <button
+                                                    class="flex flex-col shrink-0 items-start bg-[#FCE7EB] text-left py-[13px] px-5 rounded-[100000px] border border-solid border-[#00000000]"
+                                                    onclick="alert('Pressed!')" }>
+                                                    <span class="text-[#B20E2A] text-base font-bold">
+                                                        Deny
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center py-5 mx-4 gap-5">
+                                            <div class="flex shrink-0 items-start gap-3">
+                                                <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/4vhc2ypv_expires_30_days.png"
+                                                    class="w-10 h-10 object-fill" />
+                                                <div class="flex flex-col shrink-0 items-start gap-1.5">
+                                                    <div class="flex flex-col items-start gap-0.5">
+                                                        <span class="text-slate-900 text-base font-bold">
+                                                            Ifeyinwa Udeh
+                                                        </span>
+                                                        <span class="text-stone-600 text-sm">
+                                                            Senior Interaction Designer
+                                                        </span>
+                                                    </div>
+                                                    <button
+                                                        class="flex flex-col items-start bg-neutral-100 text-left py-0.5 px-3 rounded-2xl border-0"
+                                                        onclick="alert('Pressed!')" }>
+                                                        <span class="text-slate-900 text-sm font-bold">
+                                                            Technology
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="flex flex-col shrink-0 items-start gap-2">
+                                                <div class="flex items-center">
+                                                    <span class="text-stone-600 text-sm mr-2">
+                                                        Request type:
+                                                    </span>
+                                                    <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/jf6mnpy8_expires_30_days.png"
+                                                        class="w-2 h-2 mr-1 object-fill" />
+                                                    <span class="text-slate-900 text-sm font-bold">
+                                                        Exemption
+                                                    </span>
+                                                </div>
+                                                <div class="flex items-start gap-[7px]">
+                                                    <span class="text-stone-600 text-sm">
+                                                        Duration:
+                                                    </span>
+                                                    <span class="text-slate-900 text-sm font-bold">
+                                                        July 10, 2025 - August 5, 2025
+                                                    </span>
+                                                </div>
+                                                <div class="flex items-center gap-[7px]">
+                                                    <span class="text-stone-600 text-sm">
+                                                        Ref ID:
+                                                    </span>
+                                                    <span class="text-stone-600 text-sm mb-[1px]">
+                                                        LV-2025-0710-0012
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="flex shrink-0 items-start pl-5 gap-4">
+                                                <button
+                                                    class="flex shrink-0 items-center bg-[#E7F7EA] text-left py-[13px] px-5 gap-2.5 rounded-[100000px] border-0"
+                                                    onclick="alert('Pressed!')" }>
+                                                    <span class="text-[#0BB02F] text-base font-bold">
+                                                        Approve
+                                                    </span>
+                                                    <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/9ht2dz46_expires_30_days.png"
+                                                        class="w-5 h-5 rounded-[100000px] object-fill" />
+                                                </button>
+                                                <button
+                                                    class="flex flex-col shrink-0 items-start bg-[#FCE7EB] text-left py-[13px] px-5 rounded-[100000px] border border-solid border-[#00000000]"
+                                                    onclick="alert('Pressed!')" }>
+                                                    <span class="text-[#B20E2A] text-base font-bold">
+                                                        Deny
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center py-5 mx-4 gap-5">
+                                            <div class="flex shrink-0 items-start gap-3">
+                                                <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/fu4qi1op_expires_30_days.png"
+                                                    class="w-10 h-10 object-fill" />
+                                                <div class="flex flex-col shrink-0 items-start gap-1.5">
+                                                    <div class="flex flex-col items-start gap-0.5">
+                                                        <span class="text-slate-900 text-base font-bold">
+                                                            Chukwuemeka Nwosu
+                                                        </span>
+                                                        <span class="text-stone-600 text-sm">
+                                                            Customer Experience Architect
+                                                        </span>
+                                                    </div>
+                                                    <button
+                                                        class="flex flex-col items-start bg-neutral-100 text-left py-0.5 px-3 rounded-2xl border-0"
+                                                        onclick="alert('Pressed!')" }>
+                                                        <span class="text-slate-900 text-sm font-bold">
+                                                            Technology
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="flex flex-col shrink-0 items-start gap-2">
+                                                <div class="flex items-center">
+                                                    <span class="text-stone-600 text-sm mr-2">
+                                                        Request type:
+                                                    </span>
+                                                    <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/2ydkeee6_expires_30_days.png"
+                                                        class="w-2 h-2 mr-1 object-fill" />
+                                                    <span class="text-slate-900 text-sm font-bold">
+                                                        Exemption
+                                                    </span>
+                                                </div>
+                                                <div class="flex items-start gap-[7px]">
+                                                    <span class="text-stone-600 text-sm">
+                                                        Duration:
+                                                    </span>
+                                                    <span class="text-slate-900 text-sm font-bold">
+                                                        July 10, 2025 - August 5, 2025
+                                                    </span>
+                                                </div>
+                                                <div class="flex items-center gap-[7px]">
+                                                    <span class="text-stone-600 text-sm">
+                                                        Ref ID:
+                                                    </span>
+                                                    <span class="text-stone-600 text-sm mb-[1px]">
+                                                        LV-2025-0710-0012
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="flex shrink-0 items-start pl-5 gap-4">
+                                                <button
+                                                    class="flex shrink-0 items-center bg-[#E7F7EA] text-left py-[13px] px-5 gap-2.5 rounded-[100000px] border-0"
+                                                    onclick="alert('Pressed!')" }>
+                                                    <span class="text-[#0BB02F] text-base font-bold">
+                                                        Approve
+                                                    </span>
+                                                    <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/n5yalo8s_expires_30_days.png"
+                                                        class="w-5 h-5 rounded-[100000px] object-fill" />
+                                                </button>
+                                                <button
+                                                    class="flex flex-col shrink-0 items-start bg-[#FCE7EB] text-left py-[13px] px-5 rounded-[100000px] border border-solid border-[#00000000]"
+                                                    onclick="alert('Pressed!')" }>
+                                                    <span class="text-[#B20E2A] text-base font-bold">
+                                                        Deny
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center py-5 mx-4 gap-5">
+                                            <div class="flex shrink-0 items-start gap-3">
+                                                <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/uzvmhnzz_expires_30_days.png"
+                                                    class="w-10 h-10 object-fill" />
+                                                <div class="flex flex-col shrink-0 items-start gap-1.5">
+                                                    <div class="flex flex-col items-start gap-0.5">
+                                                        <span class="text-slate-900 text-base font-bold">
+                                                            Adaobi Nwankwo
+                                                        </span>
+                                                        <span class="text-stone-600 text-sm">
+                                                            Lead Product Designer
+                                                        </span>
+                                                    </div>
+                                                    <button
+                                                        class="flex flex-col items-start bg-neutral-100 text-left py-0.5 px-3 rounded-2xl border-0"
+                                                        onclick="alert('Pressed!')" }>
+                                                        <span class="text-slate-900 text-sm font-bold">
+                                                            Technology
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="flex flex-col shrink-0 items-start gap-2">
+                                                <div class="flex items-center">
+                                                    <span class="text-stone-600 text-sm mr-2">
+                                                        Request type:
+                                                    </span>
+                                                    <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/b9lkt014_expires_30_days.png"
+                                                        class="w-2 h-2 mr-1 object-fill" />
+                                                    <span class="text-slate-900 text-sm font-bold">
+                                                        Exemption
+                                                    </span>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <span class="text-stone-600 text-sm mr-[7px]">
+                                                        Duration:
+                                                    </span>
+                                                    <span class="text-slate-900 text-sm font-bold mr-1.5">
+                                                        July 10, 2025 - August 5, 2025
+                                                    </span>
+                                                    <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/y3j8b44r_expires_30_days.png"
+                                                        class="w-5 h-5 object-fill" />
+                                                </div>
+                                                <div class="flex items-center gap-[7px]">
+                                                    <span class="text-stone-600 text-sm">
+                                                        Ref ID:
+                                                    </span>
+                                                    <span class="text-stone-600 text-sm mb-[1px]">
+                                                        LV-2025-0710-0012
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="flex shrink-0 items-start pl-5 gap-4">
+                                                <button
+                                                    class="flex shrink-0 items-center bg-[#E7F7EA] text-left py-[13px] px-5 gap-2.5 rounded-[100000px] border-0"
+                                                    onclick="alert('Pressed!')" }>
+                                                    <span class="text-[#0BB02F] text-base font-bold">
+                                                        Approve
+                                                    </span>
+                                                    <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/nqcw4lok_expires_30_days.png"
+                                                        class="w-5 h-5 rounded-[100000px] object-fill" />
+                                                </button>
+                                                <button
+                                                    class="flex flex-col shrink-0 items-start bg-[#FCE7EB] text-left py-[13px] px-5 rounded-[100000px] border border-solid border-[#00000000]"
+                                                    onclick="alert('Pressed!')" }>
+                                                    <span class="text-[#B20E2A] text-base font-bold">
+                                                        Deny
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center py-5 mx-4 gap-5">
+                                            <div class="flex shrink-0 items-start gap-3">
+                                                <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/1mbdy0yt_expires_30_days.png"
+                                                    class="w-10 h-10 object-fill" />
+                                                <div class="flex flex-col shrink-0 items-start gap-1.5">
+                                                    <div class="flex flex-col items-start gap-0.5">
+                                                        <span class="text-slate-900 text-base font-bold">
+                                                            Chinonso Okafor
+                                                        </span>
+                                                        <span class="text-stone-600 text-sm">
+                                                            Senior UI/UX Designer
+                                                        </span>
+                                                    </div>
+                                                    <button
+                                                        class="flex flex-col items-start bg-neutral-100 text-left py-0.5 px-3 rounded-2xl border-0"
+                                                        onclick="alert('Pressed!')" }>
+                                                        <span class="text-slate-900 text-sm font-bold">
+                                                            Technology
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="flex flex-col shrink-0 items-start gap-2">
+                                                <div class="flex items-center">
+                                                    <span class="text-stone-600 text-sm mr-2">
+                                                        Request type:
+                                                    </span>
+                                                    <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/cb1pkldj_expires_30_days.png"
+                                                        class="w-2 h-2 mr-1 object-fill" />
+                                                    <span class="text-slate-900 text-sm font-bold">
+                                                        Exemption
+                                                    </span>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <span class="text-stone-600 text-sm mr-[7px]">
+                                                        Duration:
+                                                    </span>
+                                                    <span class="text-slate-900 text-sm font-bold mr-1.5">
+                                                        July 10, 2025 - August 5, 2025
+                                                    </span>
+                                                    <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/xyp4jadw_expires_30_days.png"
+                                                        class="w-5 h-5 object-fill" />
+                                                </div>
+                                                <div class="flex items-center gap-[7px]">
+                                                    <span class="text-stone-600 text-sm">
+                                                        Ref ID:
+                                                    </span>
+                                                    <span class="text-stone-600 text-sm mb-[1px]">
+                                                        LV-2025-0710-0012
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="flex shrink-0 items-start pl-5 gap-4">
+                                                <button
+                                                    class="flex shrink-0 items-center bg-[#E7F7EA] text-left py-[13px] px-5 gap-2.5 rounded-[100000px] border-0"
+                                                    onclick="alert('Pressed!')" }>
+                                                    <span class="text-[#0BB02F] text-base font-bold">
+                                                        Approve
+                                                    </span>
+                                                    <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/z2ha3fhb_expires_30_days.png"
+                                                        class="w-5 h-5 rounded-[100000px] object-fill" />
+                                                </button>
+                                                <button
+                                                    class="flex flex-col shrink-0 items-start bg-[#FCE7EB] text-left py-[13px] px-5 rounded-[100000px] border border-solid border-[#00000000]"
+                                                    onclick="alert('Pressed!')" }>
+                                                    <span class="text-[#B20E2A] text-base font-bold">
+                                                        Deny
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center py-5 mx-4 gap-5">
+                                            <div class="flex shrink-0 items-start gap-3">
+                                                <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/wgzpe0l3_expires_30_days.png"
+                                                    class="w-10 h-10 object-fill" />
+                                                <div class="flex flex-col shrink-0 items-start gap-1.5">
+                                                    <div class="flex flex-col items-start gap-0.5">
+                                                        <span class="text-slate-900 text-base font-bold">
+                                                            Ngozi Ibe
+                                                        </span>
+                                                        <span class="text-stone-600 text-sm">
+                                                            Creative Design Manager
+                                                        </span>
+                                                    </div>
+                                                    <button
+                                                        class="flex flex-col items-start bg-neutral-100 text-left py-0.5 px-3 rounded-2xl border-0"
+                                                        onclick="alert('Pressed!')" }>
+                                                        <span class="text-slate-900 text-sm font-bold">
+                                                            Technology
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="flex flex-col shrink-0 items-start gap-2">
+                                                <div class="flex items-center">
+                                                    <span class="text-stone-600 text-sm mr-2">
+                                                        Request type:
+                                                    </span>
+                                                    <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/xr8ahlcf_expires_30_days.png"
+                                                        class="w-2 h-2 mr-1 object-fill" />
+                                                    <span class="text-slate-900 text-sm font-bold">
+                                                        Exemption
+                                                    </span>
+                                                </div>
+                                                <div class="flex items-start gap-[7px]">
+                                                    <span class="text-stone-600 text-sm">
+                                                        Duration:
+                                                    </span>
+                                                    <span class="text-slate-900 text-sm font-bold">
+                                                        July 10, 2025 - August 5, 2025
+                                                    </span>
+                                                </div>
+                                                <div class="flex items-center gap-[7px]">
+                                                    <span class="text-stone-600 text-sm">
+                                                        Ref ID:
+                                                    </span>
+                                                    <span class="text-stone-600 text-sm mb-[1px]">
+                                                        LV-2025-0710-0012
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="flex shrink-0 items-start pl-5 gap-4">
+                                                <button
+                                                    class="flex shrink-0 items-center bg-[#E7F7EA] text-left py-[13px] px-5 gap-2.5 rounded-[100000px] border-0"
+                                                    onclick="alert('Pressed!')" }>
+                                                    <span class="text-[#0BB02F] text-base font-bold">
+                                                        Approve
+                                                    </span>
+                                                    <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/eyttdm0j_expires_30_days.png"
+                                                        class="w-5 h-5 rounded-[100000px] object-fill" />
+                                                </button>
+                                                <button
+                                                    class="flex flex-col shrink-0 items-start bg-[#FCE7EB] text-left py-[13px] px-5 rounded-[100000px] border border-solid border-[#00000000]"
+                                                    onclick="alert('Pressed!')" }>
+                                                    <span class="text-[#B20E2A] text-base font-bold">
+                                                        Deny
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-stone-200 w-[1436px] h-[1px] absolute top-[91px] left-0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

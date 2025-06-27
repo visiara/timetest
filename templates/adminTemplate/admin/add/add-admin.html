@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeviceAdmins/AddAdministrator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: system-ui;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex flex-col bg-white">
+        <div class="flex flex-col items-start self-stretch bg-white h-[1316px] rounded-2xl border border-solid border-stone-200"
+            style="box-shadow: 0px 10px 10px #00000008">
+            <span class="text-slate-900 text-[28px] font-bold mt-5 mb-[25px] mx-5">
+                Add Adminstrator information
+            </span>
+            <div class="flex flex-col items-start self-stretch py-6 mb-6 mx-5 gap-3">
+                <span class="text-slate-900 text-lg font-bold">
+                    Personal Information
+                </span>
+                <div class="flex flex-col items-start self-stretch gap-[9px]">
+                    <span class="text-slate-900 text-sm font-bold">
+                        Full Name
+                    </span>
+                    <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/cjct5pm4_expires_30_days.png"
+                        class="self-stretch h-[52px] object-fill" />
+                </div>
+                <div class="flex items-start self-stretch gap-3">
+                    <div class="flex flex-1 flex-col items-start gap-[9px]">
+                        <span class="text-slate-900 text-sm font-bold">
+                            Phone Number
+                        </span>
+                        <div class="flex items-center self-stretch bg-white py-3.5 px-3 rounded-xl border border-solid border-stone-200"
+                            style="box-shadow: 0px 1px 2px #0A0C120D">
+                            <input type="text" placeholder="+234"
+                                class="flex-1 self-stretch text-stone-500 bg-transparent text-2xl font-bold py-[3px] ml-3 border-0" />
+                            <div class="flex-1 h-6">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col shrink-0 items-start gap-2">
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-slate-900 text-sm font-bold">
+                                Gender
+                            </span>
+                            <span class="text-[#B20E2A] text-xs">
+                                *
+                            </span>
+                        </div>
+                        <div
+                            class="flex items-center bg-white py-3.5 px-3 gap-2 rounded-lg border border-solid border-stone-200">
+                            <div class="w-[260px] h-6">
+                            </div>
+                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/ysgyuw0j_expires_30_days.png"
+                                class="w-[18px] h-[18px] object-fill" />
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col self-stretch gap-2">
+                    <div class="flex items-center self-stretch gap-[7px]">
+                        <span class="text-slate-900 text-sm font-bold">
+                            Email
+                        </span>
+                        <span class="text-[#B20E2A] text-xs">
+                            *
+                        </span>
+                    </div>
+                    <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/8uss53x1_expires_30_days.png"
+                        class="self-stretch h-[52px] object-fill" />
+                </div>
+                <div class="flex flex-col self-stretch gap-2">
+                    <div class="flex items-center self-stretch gap-1.5">
+                        <span class="text-slate-900 text-sm font-bold">
+                            Profile Picture
+                        </span>
+                        <span class="text-[#B20E2A] text-xs">
+                            *
+                        </span>
+                    </div>
+                    <div
+                        class="flex items-center self-stretch bg-white py-3.5 px-3 gap-2 rounded-lg border border-solid border-stone-200">
+                        <div class="flex-1 h-6">
+                        </div>
+                        <button
+                            class="flex flex-col shrink-0 items-start bg-[#E5EFF7] text-left py-2 px-3 rounded-[100000px] border-0"
+                            onclick="alert('Pressed!')" }>
+                            <span class="text-[#005FAD] text-sm font-bold">
+                                Browse
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col items-start self-stretch py-6 mb-6 mx-5 gap-3">
+                <span class="text-slate-900 text-lg font-bold">
+                    Organization Information
+                </span>
+                <div class="flex flex-col self-stretch gap-2">
+                    <div class="flex items-center self-stretch gap-[7px]">
+                        <span class="text-slate-900 text-sm font-bold">
+                            Department
+                        </span>
+                        <span class="text-[#B20E2A] text-xs">
+                            *
+                        </span>
+                    </div>
+                    <button
+                        class="flex items-center self-stretch bg-white text-left py-3.5 px-3 gap-2 rounded-lg border border-solid border-stone-200"
+                        onclick="alert('Pressed!')" }>
+                        <span class="text-stone-400 text-base mb-[1px]">
+                            Choose Department
+                        </span>
+                        <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/3ns05rhk_expires_30_days.png"
+                            class="w-[18px] h-[18px] object-fill" />
+                    </button>
+                </div>
+                <div class="flex flex-col self-stretch gap-2">
+                    <div class="flex items-center self-stretch gap-[7px]">
+                        <span class="text-slate-900 text-sm font-bold">
+                            Admin Level
+                        </span>
+                        <span class="text-[#B20E2A] text-xs">
+                            *
+                        </span>
+                    </div>
+                    <button
+                        class="flex items-center self-stretch bg-white text-left py-3.5 px-3 gap-2 rounded-lg border border-solid border-stone-200"
+                        onclick="alert('Pressed!')" }>
+                        <span class="text-stone-400 text-base mb-[1px]">
+                            Choose Admin Level
+                        </span>
+                        <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/m35fe9pp_expires_30_days.png"
+                            class="w-[18px] h-[18px] object-fill" />
+                    </button>
+                </div>
+                <div class="flex flex-col self-stretch gap-2">
+                    <div class="flex items-center self-stretch gap-[7px]">
+                        <span class="text-slate-900 text-sm font-bold">
+                            User Role
+                        </span>
+                        <span class="text-[#B20E2A] text-xs">
+                            *
+                        </span>
+                    </div>
+                    <button
+                        class="flex items-center self-stretch bg-white text-left py-3.5 px-3 gap-2 rounded-lg border border-solid border-stone-200"
+                        onclick="alert('Pressed!')" }>
+                        <span class="text-stone-400 text-base mb-[1px]">
+                            Choose User Role
+                        </span>
+                        <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/rpnz4hng_expires_30_days.png"
+                            class="w-[18px] h-[18px] object-fill" />
+                    </button>
+                </div>
+            </div>
+            <div class="flex flex-col items-start self-stretch py-6 mb-6 mx-5 gap-3">
+                <span class="text-slate-900 text-lg font-bold">
+                    Access Information
+                </span>
+                <div class="flex flex-col self-stretch gap-6">
+                    <div class="flex flex-col self-stretch gap-2">
+                        <div class="flex items-center self-stretch gap-[7px]">
+                            <span class="text-slate-900 text-sm font-bold">
+                                Username
+                            </span>
+                            <span class="text-[#B20E2A] text-xs">
+                                *
+                            </span>
+                        </div>
+                        <div
+                            class="flex flex-col items-start self-stretch bg-white pt-3.5 pb-[15px] px-3 rounded-lg border border-solid border-stone-200">
+                            <span class="text-stone-400 text-base">
+                                Mohammed
+                            </span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col self-stretch gap-2">
+                        <div class="flex items-center self-stretch gap-2">
+                            <span class="text-slate-900 text-sm font-bold">
+                                Password
+                            </span>
+                            <span class="text-[#B20E2A] text-xs">
+                                *
+                            </span>
+                        </div>
+                        <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/xehp6zao_expires_30_days.png"
+                            class="self-stretch h-[52px] object-fill" />
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-start self-stretch mb-5 mx-5 gap-3">
+                <div class="flex flex-1 flex-col items-center py-[19px] rounded-[100000px]">
+                    <span class="text-stone-600 text-base font-bold">
+                        Cancel
+                    </span>
+                </div>
+                <button
+                    class="flex flex-1 flex-col items-center bg-[#06B6E9] text-left py-4 rounded-[100000px] border-0"
+                    onclick="alert('Pressed!')" }>
+                    <span class="text-white text-base font-bold">
+                        Save
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

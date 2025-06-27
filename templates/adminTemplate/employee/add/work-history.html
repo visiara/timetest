@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overlay</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: system-ui;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex flex-col bg-white">
+        <div class="self-stretch bg-[#0000001A] h-[987px]">
+            <div class="flex flex-col items-start self-stretch bg-white py-5 my-[207px] mx-[400px] rounded-2xl border border-solid border-stone-200"
+                style="box-shadow: 0px 10px 10px #00000008">
+                <span class="text-slate-900 text-[28px] font-bold mb-[25px] mx-5">
+                    Add work history
+                </span>
+                <div class="flex flex-col items-start self-stretch py-6 mb-6 mx-5 gap-6">
+                    <div class="flex flex-col self-stretch gap-2">
+                        <div class="flex items-center self-stretch gap-[7px]">
+                            <span class="text-slate-900 text-sm font-bold">
+                                Name of Organization
+                            </span>
+                            <span class="text-[#B20E2A] text-xs">
+                                *
+                            </span>
+                        </div>
+                        <div
+                            class="flex flex-col items-start self-stretch bg-white pt-3.5 pb-[15px] px-3 rounded-xl border border-solid border-stone-200">
+                            <span class="text-slate-900 text-base">
+                                Heckerbella Limited
+                            </span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col self-stretch gap-2">
+                        <div class="flex items-center self-stretch gap-[7px]">
+                            <span class="text-slate-900 text-sm font-bold">
+                                Role
+                            </span>
+                            <span class="text-[#B20E2A] text-xs">
+                                *
+                            </span>
+                        </div>
+                        <div
+                            class="flex flex-col items-start self-stretch bg-white pt-3.5 pb-[15px] px-3 rounded-xl border border-solid border-stone-200">
+                            <span class="text-slate-900 text-base">
+                                Senior designer & Team lead
+                            </span>
+                        </div>
+                    </div>
+                    <div class="flex items-start self-stretch gap-3">
+                        <div class="flex flex-1 flex-col gap-2">
+                            <div class="flex items-center self-stretch gap-1.5">
+                                <span class="text-slate-900 text-sm font-bold">
+                                    Start date
+                                </span>
+                                <span class="text-[#B20E2A] text-xs">
+                                    *
+                                </span>
+                            </div>
+                            <button
+                                class="flex items-center self-stretch bg-white text-left py-3.5 px-3 gap-2 rounded-xl border border-solid border-stone-200"
+                                onclick="alert('Pressed!')" }>
+                                <span class="text-slate-900 text-base mb-[1px]">
+                                    01/01/2005
+                                </span>
+                                <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/ouiw31dx_expires_30_days.png"
+                                    class="w-[18px] h-[18px] object-fill" />
+                            </button>
+                        </div>
+                        <div class="flex flex-1 flex-col gap-2">
+                            <div class="flex items-center self-stretch gap-1.5">
+                                <span class="text-slate-900 text-sm font-bold">
+                                    End date
+                                </span>
+                                <span class="text-[#B20E2A] text-xs">
+                                    *
+                                </span>
+                            </div>
+                            <button
+                                class="flex items-center self-stretch bg-white text-left py-3.5 px-3 gap-2 rounded-xl border border-solid border-stone-200"
+                                onclick="alert('Pressed!')" }>
+                                <span class="text-slate-900 text-base mb-[1px]">
+                                    01/01/2005
+                                </span>
+                                <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/8tog1xn5_expires_30_days.png"
+                                    class="w-[18px] h-[18px] object-fill" />
+                            </button>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-5 h-5 rounded border border-solid border-stone-200">
+                        </div>
+                        <span class="text-slate-900 text-base">
+                            I currently work here
+                        </span>
+                    </div>
+                </div>
+                <div class="flex items-start self-stretch mx-5 gap-3">
+                    <div class="flex flex-1 flex-col items-center py-[19px] rounded-[100000px]">
+                        <span class="text-stone-600 text-base font-bold">
+                            Cancel
+                        </span>
+                    </div>
+                    <button
+                        class="flex flex-1 flex-col items-center bg-[#06B6E9] text-left py-4 rounded-[100000px] border-0"
+                        onclick="alert('Pressed!')" }>
+                        <span class="text-white text-base font-bold">
+                            Save
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

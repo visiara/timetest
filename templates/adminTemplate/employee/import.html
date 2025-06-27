@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overlay</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: system-ui;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex flex-col bg-white">
+        <div class="self-stretch bg-[#0000001A] h-[985px]">
+            <div class="flex flex-col items-start self-stretch bg-white py-5 mt-[52px] mb-[53px] mx-[400px] gap-6 rounded-2xl border border-solid border-stone-200"
+                style="box-shadow: 0px 10px 10px #00000008">
+                <div class="flex items-start self-stretch mx-5">
+                    <span class="flex-1 text-slate-900 text-[28px] font-bold">
+                        Import employee info
+                    </span>
+                    <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/x18aq04n_expires_30_days.png"
+                        class="w-[22px] h-[22px] mt-[1px] rounded-[100000px] object-fill" />
+                </div>
+                <div class="flex items-start ml-5 gap-[3px]">
+                    <div class="flex flex-col shrink-0 items-start py-6">
+                        <span class="text-slate-900 text-base font-bold mb-4">
+                            Important information
+                        </span>
+                        <span class="text-slate-900 text-sm w-[658px] mb-4">
+                            The upload file MUST be a comma seperated CSV file arranged in the table structure
+                            below.\nAll headers must be removed and first colun must be User ID column. Check sample
+                            file below
+                        </span>
+                        <span class="text-slate-900 text-sm w-56 mb-[23px]">
+                            Table Structure:\nUser ID = CSV column[0] First Name = CSV column[1] Middle Name = CSV
+                            column[2] Last Name = CSV column[3] Email Address = CSV column[4] Full Address = CSV
+                            column[5] Gender = CSV column[6] Phone Number = CSV column[7] Next of Kin = CSV
+                            column[8] Date of Birth = CSV column[9]
+                        </span>
+                        <div class="flex flex-col items-start">
+                            <div class="flex flex-col items-start py-5 mb-6 mx-0.5 gap-2.5">
+                                <div class="bg-stone-100 w-[668px] h-0.5">
+                                </div>
+                                <span class="text-stone-600 text-lg font-bold">
+                                    Upload users
+                                </span>
+                            </div>
+                            <div class="flex flex-col items-start mb-[25px] mx-0.5 gap-2">
+                                <span class="text-slate-900 text-sm font-bold mr-[611px]">
+                                    CSV file
+                                </span>
+                                <div class="flex items-start bg-white rounded-xl border border-solid border-stone-200"
+                                    style="box-shadow: 0px 1px 2px #0A0C120D">
+                                    <div class="flex shrink-0 items-center py-2 pl-3">
+                                        <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/yrtdlp90_expires_30_days.png"
+                                            class="w-[22px] h-[22px] mr-2 object-fill" />
+                                        <span class="text-slate-900 text-base mr-[283px]">
+                                            list of employees 2025
+                                        </span>
+                                        <span class="text-slate-900 text-sm mr-[13px]">
+                                            .CSV
+                                        </span>
+                                        <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/ejryor03_expires_30_days.png"
+                                            class="w-[1px] h-9 rounded-xl object-fill" />
+                                    </div>
+                                    <span class="text-[#B20E2A] text-sm font-bold my-4 mx-[34px]">
+                                        Delete
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="flex items-start mx-0.5 gap-4">
+                                <div class="flex flex-col shrink-0 items-start gap-2">
+                                    <div class="flex items-center gap-1.5">
+                                        <span class="text-slate-900 text-sm font-bold">
+                                            Country
+                                        </span>
+                                        <span class="text-[#B20E2A] text-xs">
+                                            *
+                                        </span>
+                                    </div>
+                                    <button
+                                        class="flex items-center bg-white text-left py-3.5 px-3 rounded-lg border border-solid border-stone-200"
+                                        onclick="alert('Pressed!')" }>
+                                        <span class="text-slate-900 text-base mr-[194px]">
+                                            Nigeria
+                                        </span>
+                                        <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/t1me74ot_expires_30_days.png"
+                                            class="w-[18px] h-[18px] mr-[7px] object-fill" />
+                                        <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/smhvkvvv_expires_30_days.png"
+                                            class="w-[7px] h-[18px] mr-[1px] object-fill" />
+                                        <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/mh4nqkaj_expires_30_days.png"
+                                            class="w-[18px] h-[18px] object-fill" />
+                                    </button>
+                                </div>
+                                <div class="flex flex-col shrink-0 items-start gap-2">
+                                    <div class="flex items-center gap-1.5">
+                                        <span class="text-slate-900 text-sm font-bold">
+                                            Country
+                                        </span>
+                                        <span class="text-[#B20E2A] text-xs">
+                                            *
+                                        </span>
+                                    </div>
+                                    <button
+                                        class="flex items-center bg-white text-left py-3.5 px-3 rounded-lg border border-solid border-stone-200"
+                                        onclick="alert('Pressed!')" }>
+                                        <span class="text-slate-900 text-base mr-[222px]">
+                                            Edo
+                                        </span>
+                                        <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/lqmyihdr_expires_30_days.png"
+                                            class="w-[18px] h-[18px] mr-[7px] object-fill" />
+                                        <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/5swd69m5_expires_30_days.png"
+                                            class="w-[7px] h-[18px] mr-[1px] object-fill" />
+                                        <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/odkm4mb1_expires_30_days.png"
+                                            class="w-[18px] h-[18px] object-fill" />
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col shrink-0 items-center bg-[#F1F1F1] py-1.5 px-0.5 mt-[25px]">
+                        <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/0h63rwnx_expires_30_days.png"
+                            class="w-[7px] h-[7px] object-fill" />
+                        <div class="bg-[#C1C1C1] w-[13px] h-[25px] mb-[539px]">
+                        </div>
+                        <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/s060kxl1_expires_30_days.png"
+                            class="w-[7px] h-[7px] object-fill" />
+                    </div>
+                </div>
+                <button
+                    class="flex flex-col items-center self-stretch bg-[#06B6E9] text-left py-4 mx-5 rounded-[100000px] border-0"
+                    onclick="alert('Pressed!')" }>
+                    <span class="text-white text-base font-bold">
+                        Upload users
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
