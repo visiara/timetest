@@ -1,0 +1,108 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f9f9f9;
+}
+
+.sidebar {
+    height: 100vh;
+    background-color: #fff;
+    border-right: 1px solid #e0e0e0;
+    padding: 1rem;
+}
+
+.sidebar .nav-link.active {
+    background-color: #dff4ff;
+    border-radius: 0.5rem;
+    color: #0d6efd;
+}
+
+.sidebar .nav-link {
+    color: #333;
+    font-weight: 500;
+}
+
+.profile {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.profile .name {
+    font-weight: 600;
+}
+
+.profile .role {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.nav-link i {
+    margin-right: 0.5rem;
+}
+
+.topbar {
+    background: white;
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+
+.login-container {
+    min-height: 100vh;
+}
+
+.login-left {
+    background-color: #69beeb;
+    color: white;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-left h3 {
+    font-weight: bold;
+}
+
+.login-left p {
+    font-size: 0.95rem;
+}
+
+.login-right {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-control {
+    border-radius: 8px;
+    padding: 0.75rem;
+}
+
+.btn-custom {
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 0.6rem 2rem;
+}
+
+.form-label {
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+
+.toggle-password {
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 38px;
+}

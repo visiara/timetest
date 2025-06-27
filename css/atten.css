@@ -1,0 +1,106 @@
+    .calendar-day {
+      border: 1px solid #ddd;
+      height: 150px;
+      padding: 8px;
+      font-size: 14px;
+    }
+    .clock-in {
+      background-color: #e6f7e6;
+    }
+    .exemption {
+      background-color: #fdeff2;
+    }
+    .leave {
+      background-color: #e7e6ff;
+    }
+    .holiday {
+      background-color: #e6f2ff;
+    }
+    .absent {
+      background-color: #fff3cd;
+    }
+    .day-number {
+      font-weight: bold;
+    }
+    .filter-btn.active {
+      background-color: #0dcaf0;
+      color: #000;
+      font-weight: bold;
+    }
+        .menu-bar {
+      background-color: #fff;
+      color: #bbb;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-weight: 500;
+    }
+
+    .menu-bar .month {
+      color: #1a1a2e;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .menu-bar .active-filter {
+      background-color: #00bfff;
+      color: #fff;
+      padding: 5px 15px;
+      border-radius: 20px;
+    }
+
+    .menu-bar i {
+      font-size: 18px;
+      margin-right: 5px;
+      color: #aaa;
+    }
+
+    .dropdown-toggle::after {
+      border-top-color: #bbb;
+    }
+        .leave-option {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 15px 20px;
+      margin-bottom: 12px;
+      background-color: #fff;
+      transition: box-shadow 0.3s;
+    }
+
+    .leave-option:hover {
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .form-check-input:checked {
+      background-color: #00bfff;
+      border-color: #00bfff;
+    }
+
+    .form-check-label h6 {
+      margin-bottom: 2px;
+    }
+
+    .leave-counter {
+      background-color: #e6f4ea;
+      color: #34a853;
+      font-size: 0.875rem;
+      padding: 2px 8px;
+      border-radius: 12px;
+      margin-left: auto;
+    }
+
+    .leave-title {
+      font-weight: 600;
+    }
+
+    .leave-desc {
+      color: #6c757d;
+      font-size: 0.9rem;
+    }
+
+    .section-title {
+      font-weight: 600;
+      color: #202124;
+      margin-bottom: 20px;
+    }
