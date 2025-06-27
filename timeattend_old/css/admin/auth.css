@@ -1,0 +1,100 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.left-panel {
+    border-radius: 15px;
+    margin: 15px;
+    background: linear-gradient(135deg, #5DADE2 0%, #69beeb 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.right-panel {
+    background: white;
+}
+
+.brand-logo {
+    width: 60px;
+    height: 60px;
+    background: #1ABC9C;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* .brand-logo::before {
+    content: "😊";
+    font-size: 24px;
+} */
+
+.brand-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2C3E50;
+    margin-left: 15px;
+}
+
+
+.form-container {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-control {
+    border: 1px solid #E5E5E5;
+    border-radius: 8px;
+    padding: 15px;
+    font-size: 16px;
+    background: white;
+}
+
+.form-control:focus {
+    border-color: #69beeb;
+    box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+}
+
+.btn-primary {
+    background: #69beeb !important;
+    border: none;
+    border-radius: 8px;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    width: 100%;
+    border: 2px solid #69beeb !important;
+    border-radius: 35px;
+
+}
+
+.btn-primary:hover {
+    background:#69beeb !important;
+}
+
+.forgot-password {
+    color: #69beeb;
+    text-decoration: none;
+    font-size: 14px;
+    text-align: left;
+}
+
+.forgot-password:hover {
+    color: #69beeb;
+    text-decoration: none;
+}
+
+.show-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #BDC3C7;
+    cursor: pointer;
+    font-size: 14px;
+}

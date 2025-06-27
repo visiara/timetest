@@ -1,0 +1,60 @@
+# HECKER PEOPLE HR Module - Setup Guide
+
+## Prerequisites
+- PHP 7.4 or later
+- MySQL Database
+- Apache Server (XAMPP, WAMP, or any LAMP/LEMP stack)
+- jQuery and Bootstrap 4 (CDN included in UI files)
+
+## Installation Steps
+
+### 1. Set Up the Database
+1. Open MySQL and create a new database:
+   ```sql
+   CREATE DATABASE timatend_hr;
+   ```
+2. Import the provided SQL file (`timatend_db_schema.sql`) into your database:
+   ```bash
+   mysql -u root -p timatend_hr < timatend_db_schema.sql
+   ```
+
+### 2. Configure Database Connection
+1. Open `db_connect.php` (create if not included) and update the following:
+   ```php
+   <?php
+   $conn = new mysqli('localhost', 'root', '', 'timatend_hr');
+   if ($conn->connect_error) {
+       die("Connection failed: " . $conn->connect_error);
+   }
+   ?>
+   ```
+
+### 3. Deploy PHP Scripts
+1. Place all PHP files (`auth_module.php`, `job_management.php`, etc.) inside your server root (`htdocs` for XAMPP or `/var/www/html` for Linux servers).
+
+### 4. Deploy UI Files
+1. Place HTML files (`auth_ui.html`, `dashboard.html`, etc.) in the same directory.
+2. Ensure JavaScript/jQuery files are accessible via CDN (included in scripts).
+
+### 5. Run the Application
+1. Start your Apache server.
+2. Open `http://localhost/auth_ui.html` in a browser.
+3. Register or log in as an Admin or HR Manager.
+4. Navigate through the system to manage jobs, applicants, and HRDA documents.
+
+### 6. Additional Features
+- **Real-Time Notifications:** Log actions are updated dynamically.
+- **Role-Based Access:** Admins manage users; HR managers handle recruitment.
+- **Audit Logs & Export:** Track all user actions and download logs.
+
+## Troubleshooting
+- **Database Connection Failed:** Check MySQL credentials in `db_connect.php`.
+- **UI Not Loading:** Ensure Bootstrap and jQuery are accessible via CDN.
+- **Errors in PHP:** Enable error reporting by adding:
+  ```php
+  error_reporting(E_ALL);
+  ini_set('display_errors', 1);
+  ```
+  in `db_connect.php` for debugging.
+
+Enjoy using HECKER PEOPLE HR Module! 🚀

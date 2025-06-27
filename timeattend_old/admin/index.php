@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignIn</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: system-ui;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex flex-col bg-white">
+        <div class="self-stretch bg-white h-[982px]">
+            <div class="flex items-start self-stretch">
+                <div
+                    class="flex flex-col shrink-0 items-start bg-[url('https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/bnc29li5_expires_30_days.png')] bg-cover bg-center pb-[680px] my-4 ml-4">
+                    <div class="flex flex-col items-start py-16 gap-1">
+                        <span class="text-white text-[28px] font-bold ml-6">
+                            Administrator Access
+                        </span>
+                        <span class="text-white text-base w-[567px] ml-6">
+                            Heckerpeople is a user-friendly and intuitive system that provides smoothly integrated
+                            essential time and attendance functionality, employee management, leave management,
+                            scheduling, time tracking, time management solution and more.
+                        </span>
+                    </div>
+                </div>
+                <div class="flex flex-1 flex-col items-center">
+                    <div class="flex flex-col items-start w-[550px] py-[172px]">
+                        <div class="flex items-center self-stretch mb-6 mx-[182px] gap-[13px]">
+                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/2k26v5gv_expires_30_days.png"
+                                class="w-[71px] h-[71px] object-fill" />
+                            <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/imedhqcv_expires_30_days.png"
+                                class="w-[101px] h-[42px] object-fill" />
+                        </div>
+                        <span class="text-slate-900 text-[28px] font-bold mb-1">
+                            Welcome back Admin! Please sign in
+                        </span>
+                        <span class="text-stone-600 text-base mb-6">
+                            Sign into your administrator account using valid credentials.
+                        </span>
+                        <div class="flex flex-col items-start self-stretch py-[39px] mb-6">
+                            <span class="text-slate-900 text-sm font-bold mb-[9px]">
+                                User name
+                            </span>
+                            <input type="text" placeholder="user1234"
+                                class="self-stretch text-slate-900 bg-white text-base py-[13px] pl-3 pr-6 mb-[23px] rounded-xl border border-solid border-stone-200" />
+                            <span class="text-slate-900 text-sm font-bold mb-[9px]">
+                                Password
+                            </span>
+                            <button
+                            type="text" placeholder="user1234"
+                                class="flex justify-between items-center self-stretch bg-white text-left py-[13px] px-3 mb-8 rounded-xl border border-solid border-stone-200"
+                                onclick="alert('Pressed!')" }>
+                                <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/siapy38y_expires_30_days.png"
+                                    class="w-[455px] h-6 object-fill" />
+                                <span class="text-stone-600 text-sm font-bold">
+                                    Show
+                                </span>
+                                <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/zx1odhr3_expires_30_days.png"
+                                    class="w-[18px] h-[18px] object-fill" />
+                            </button>
+                            <span class="text-[#0592BA] text-base font-bold my-[5px] mx-[1px]">
+                                Forgot Password?
+                            </span>
+                        </div>
+                        <button
+                            class="flex flex-col items-center self-stretch bg-[#06B6E9] text-left py-[15px] mt-12 rounded-[100000px] border-0"
+                            onclick="alert('Pressed!')" }>
+                            <span class="text-white text-base font-bold">
+                                Sign In
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
