@@ -43,14 +43,19 @@
         <div class="d-flex align-items-center gap-3 flex-wrap">
             <div class="d-flex align-items-center gap-2">
                 <span class="text-muted small">Items per page</span>
-                <button
-                    type="button"
+
+                <select
+                    id="entriesSelect"
                     class="btn btn-white border rounded d-flex align-items-center gap-2 px-3 py-2"
-                    style="box-shadow: 0px 1px 2px #0A0C120D;"
-                    onclick="alert('Pressed!')">
-                    <span class="text-dark small">10</span>
+                    style="box-shadow: 0px 1px 2px #0A0C120D;">
+
+                    <option value="10">10 entries</option>
+                    <option value="25">25 entries</option>
+                    <option value="50">50 entries</option>
+                    <option value="100">100 entries</option>
+
                     <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/qb4opxu3_expires_30_days.png" alt="arrow" width="18" height="18" />
-                </button>
+                </select>
             </div>
 
             <button

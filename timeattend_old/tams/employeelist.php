@@ -742,10 +742,6 @@ if (isset($_POST['maintype'])) {
     <?php
 
     ?>
-    <!-- ########## END: RIGHT PANEL ########## --->
-
-    <!-- ########## START: MAIN PANEL ########## -->
-    <!-- br-mainpanel -->
 
     <div class="container">
       <div>
@@ -754,7 +750,7 @@ if (isset($_POST['maintype'])) {
 
 
 
-        <div class="table-wrapper mg-t-15">
+        <div class="table-responsive mg-t-15">
           <table class="table align-middle table-row-dashed fs-6 gy-5 mb-0 p-2" id="datatable1">
             <thead class="thead-colored thead-dark">
               <tr>
@@ -771,89 +767,62 @@ if (isset($_POST['maintype'])) {
             </thead>
             <tbody>
               <?php
+              $x = 0;
 
-              $x = '0';
-              $huserbd5 = mysqli_query($conn, "SELECT * FROM employee WHERE dele = '0' AND company='$companyMain'");
-              while ($huserb1d5 = mysqli_fetch_array($huserbd5)) {
-                $eid = $huserb1d5["id"];
-                $empuniqid = $huserb1d5["uniqid"];
-                $employeeid = $huserb1d5["employeeid"];
-                $fname = $huserb1d5["fname"];
-                $mname = $huserb1d5["mname"];
-                $lname = $huserb1d5["lname"];
-                $email = $huserb1d5["email"];
-                $address = $huserb1d5["address"];
-                $country = $huserb1d5["country"];
-                $state = $huserb1d5["state"];
-                $gender = $huserb1d5["gender"];
-                $phone = $huserb1d5["phone"];
-                $nextofkin = $huserb1d5["nextofkin"];
-                $dofb = $huserb1d5["dofb"];
-                $employmenttype = $huserb1d5["employmenttype"];
-                $location1 = $huserb1d5["location"];
-                $department1 = $huserb1d5["department"];
-                $workshift1 = $huserb1d5["workshift"];
-                $uname = $huserb1d5["uname"];
-                $pword = $huserb1d5["pword"];
-                $status = $huserb1d5["status"];
-                $createdby = $huserb1d5["createdby"];
-                $profilepic = $huserb1d5["profilepic"];
-                $salaryscale5 = $huserb1d5["salaryscale"];
+              $employees = mysqli_query($conn, "SELECT * FROM employee WHERE dele = '0' AND company='$companyMain'");
 
-                $huya = mysqli_query($conn, "SELECT * FROM salaryscale WHERE id = '$salaryscale5' AND company='$companyMain'");
-                while ($hugya = mysqli_fetch_array($huya)) {
-                  $salaryscale34 = $hugya["nickname"];
+              while ($emp = mysqli_fetch_array($employees)) {
+                $eid           = $emp["id"];
+                $empuniqid     = $emp["uniqid"];
+                $employeeid    = $emp["employeeid"];
+                $fname         = $emp["fname"];
+                $mname         = $emp["mname"];
+                $lname         = $emp["lname"];
+                $email         = $emp["email"];
+                $address       = $emp["address"];
+                $country_id    = $emp["country"];
+                $state_id      = $emp["state"];
+                $gender        = $emp["gender"];
+                $phone         = $emp["phone"];
+                $nextofkin     = $emp["nextofkin"];
+                $dofb          = $emp["dofb"];
+                $employmenttype_id = $emp["employmenttype"];
+                $location_id   = $emp["location"];
+                $department_id = $emp["department"];
+                $workshift_id  = $emp["workshift"];
+                $uname         = $emp["uname"];
+                $pword         = $emp["pword"];
+                $status        = $emp["status"];
+                $createdby     = $emp["createdby"];
+                $profilepic    = $emp["profilepic"];
+                $salaryscale_id = $emp["salaryscale"];
+
+                // Fetch all related data using $getval helper
+                $salaryscale34    = $getval("SELECT nickname FROM salaryscale WHERE id = '$salaryscale_id' AND company='$companyMain'")['nickname'] ?? '';
+                $location         = $getval("SELECT locationname FROM location WHERE id = '$location_id' AND company='$companyMain'")['locationname'] ?? '';
+                $department       = $getval("SELECT departmentname FROM departments WHERE id = '$department_id' AND company='$companyMain'")['departmentname'] ?? '';
+                $workshift        = $getval("SELECT shiftname FROM workshift WHERE id = '$workshift_id' AND company='$companyMain'")['shiftname'] ?? '';
+                $employmenttypey  = $getval("SELECT name FROM employmenttype WHERE id = '$employmenttype_id'")['name'] ?? '';
+
+                $mainCountry          = $getval("SELECT name FROM country WHERE id = '$country_id'")['name'] ?? '';
+                $state            = $getval("SELECT name FROM states WHERE id = '$state_id'")['name'] ?? '';
+
+                // Fetch employee photo
+                $photo_preview = $tehnoimage ?? '';
+                $photo_row = $getval("SELECT photo_preview FROM photos WHERE applicant_id = '$employeeid' AND company='$companyMain'");
+                if (!empty($photo_row)) {
+                  $photo_preview = $photo_row['photo_preview'] ?? $photo_preview;
                 }
 
-                $hu = mysqli_query($conn, "SELECT * FROM location WHERE id = '$location1' AND company='$companyMain'");
-                while ($hug = mysqli_fetch_array($hu)) {
-                  $location = $hug["locationname"];
-                }
+                // UI status logic
+                $statusd     = ($status === "Active") ? "badge-light-success" : "badge-light-danger";
+                $btnactivate = ($status === "Active") ? "btn-danger" : "btn-success";
+                $iconState   = ($status === "Active") ? "bg-success" : "bg-danger";
+                $btnicon     = ($status === "Active") ? "fa-lock" : "fa-lock-open";
+                $actionText  = ($status === "Active") ? "Deactivate user" : "Activate user";
+                $onoff       = ($status === "Active") ? "InActive" : "Active";
 
-                $hu1 = mysqli_query($conn, "SELECT * FROM departments WHERE id = '$department1' AND company='$companyMain'");
-                while ($hug1 = mysqli_fetch_array($hu1)) {
-                  $department = $hug1["departmentname"];;
-                }
-
-                $hu2 = mysqli_query($conn, "SELECT * FROM workshift WHERE id = '$workshift1' AND company='$companyMain'");
-                while ($hug2 = mysqli_fetch_array($hu2)) {
-                  $workshift = $hug2["shiftname"];;
-                }
-
-                $hu3y = mysqli_query($conn, "SELECT * FROM employmenttype WHERE id = '$employmenttype'");
-                while ($hug3y = mysqli_fetch_array($hu3y)) {
-                  $employmenttypey = $hug3y["name"];;
-                }
-
-                $bookpay1 = mysqli_query($conn, "SELECT * FROM photos WHERE applicant_id = '$employeeid' AND company='$companyMain'");
-                $bo = mysqli_num_rows($bookpay1);
-                if ($bo > 0) {
-                  while ($bookpay = mysqli_fetch_array($bookpay1)) {
-                    $photo_preview = $bookpay["photo_preview"];
-                  }
-                }
-
-                $hu3yz = mysqli_query($conn, "SELECT * FROM country WHERE id = '$country'");
-                while ($hug3yz = mysqli_fetch_array($hu3yz)) {
-                  $country = $hug3yz["name"];
-                }
-
-                $hu3yz2 = mysqli_query($conn, "SELECT * FROM states WHERE id = '$state'");
-                while ($hug3yz2 = mysqli_fetch_array($hu3yz2)) {
-                  $state = $hug3yz2["name"];
-                }
-
-                //$photo_preview = empty($photo_preview) ? $tehnoimage : $photo_preview;
-
-                $statusd     = ($status == "Active") ? "badge-light-success" : "badge-light-danger";
-                $btnactivate = ($status == "Active") ? "btn-danger" : "btn-success";
-                $iconState   = ($status == "Active") ? "bg-success" : "bg-danger";
-                $btnicon     = ($status == "Active") ? "fa-lock" : "fa-lock-open";
-                $actionText  = ($status == "Active") ? "Deactivate user" : "Activate user";
-                $onoff       = ($status == "Active") ? "InActive" : "Active";
-
-
-                $x = $x + '1';
+                $x++;
               ?>
                 <tr class="fw-semibold fs-6 text-gray-800 border-bottom-2 border-gray-200">
                   <td><?= $x ?>.</td>
@@ -862,16 +831,17 @@ if (isset($_POST['maintype'])) {
                     <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
                       <a href="#">
                         <div class="symbol-label">
-                          <?php if ($bo > 0): ?>
+                          <?php if (!empty($photo_row)): ?>
                             <img src="data:image/png;base64,<?= $photo_preview ?>" class="w-100">
                           <?php else: ?>
                             <img src="../images/employee/<?= $profilepic ?>" class="w-100">
                           <?php endif; ?>
                         </div>
+
                       </a>
                     </div>
                     <div class="d-flex flex-column">
-                      <a href="#" class="text-gray-800 text-hover-primary mb-1"><?= $lname . " " . $mname . " " . $fname ?></a>
+                      <a href="#" class="text-gray-800 text-hover-black mb-1"><?= $lname . " " . $mname . " " . $fname ?></a>
                       <span><?= $email ?></span>
                     </div>
                   </td>
@@ -898,6 +868,96 @@ if (isset($_POST['maintype'])) {
                       <div class="menu-item"><a href="?did=<?= $eid ?>" class="menu-link px-3 text-danger fw-bold" onclick="return confirmDelete();">Delete account</a></div> -->
                     </div>
                   </td>
+
+                  <div class="modal fade" id="viewEmployeeModal<?= $eid ?>" tabindex="-1" aria-labelledby="viewUserModalLabel<?= $eid ?>" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-md">
+                      <div class="modal-content rounded-4 p-4">
+                        <div class="modal-header border-0 pb-0">
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <div class="modal-body">
+                          <div class="text-center mb-4">
+                            <center>
+
+                              <img src="../images/employee/<?= $profilepic ?>" class="rounded-circle mb-2" width="100" height="100" alt="User Avatar">
+                            </center>
+
+                            <h4 class="fw-bold mb-0"><?= $lname . " " . $mname . " " . $fname; ?></h4>
+                            <small class="text-muted"><?= $employmenttypey ?></small>
+                          </div>
+
+                          <div class="row mb-4">
+                            <div class="col-md-6 mb-3">
+                              <strong class="text-muted d-block">Unique ID</strong>
+                              <span><?= $empuniqid ?></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                              <strong class="text-muted d-block">Location</strong>
+                              <span><?= $location ?></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                              <strong class="text-muted d-block">Department</strong>
+                              <span class="badge bg-light text-dark"><?= $department ?></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                              <strong class="text-muted d-block">Account Status</strong>
+                              <span class="badge <?= $status == 'Active' ? 'bg-success' : 'bg-danger' ?> text-white">● <?= $status ?></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                              <strong class="text-muted d-block">Phone number</strong>
+                              <span><?= $phone ?></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                              <strong class="text-muted d-block">Work schedule</strong>
+                              <span><?= $workshift ?></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                              <strong class="text-muted d-block">Gender</strong>
+                              <span><?= $gender ?></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                              <strong class="text-muted d-block">Email</strong>
+                              <span><?= $email ?></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                              <strong class="text-muted d-block">Address</strong>
+                              <span><?= $address ?></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                              <strong class="text-muted d-block">State</strong>
+                              <span><?= $state ?></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                              <strong class="text-muted d-block">Country</strong>
+                              <span><?= $mainCountry ?></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                              <strong class="text-muted d-block">Employment type</strong>
+                              <span><?= $employmenttypey ?></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                              <strong class="text-muted d-block">Date of Birth</strong>
+                              <span><?= $dofb ?></span>
+                            </div>
+                            <div class="col-md-6 mb-3 d-flex align-items-center">
+                              <img src="https://i.pravatar.cc/30" class="rounded-circle me-2" width="30" height="30" alt="Creator">
+                              <span class="text-muted small"><?= $createdby ?></span>
+                            </div>
+                          </div>
+
+                          <div class="d-grid gap-2">
+
+                            <button class="btn btn-light-primary">View Basic Information</button>
+
+                            <a href="?activate=<?= $onoff ?>&id=<?= $eid ?>" id="<?= $onoff ?>" class="btn btn-light-danger" onclick="return confirmActivation(this.id);">Deactivate User</a>
+
+                            <a href="?activate=<?= $onoff ?>&id=<?= $eid ?>" id="<?= $onoff ?>" class="btn btn-danger" onclick="return confirmDelete(this.id);">Delete User Account</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </tr>
               <?php
                 $location = "";
@@ -948,6 +1008,7 @@ if (isset($_POST['maintype'])) {
 
       </div><!-- br-section-wrapper -->
     </div><!--  -->
+
 
     <?php
 
@@ -1183,6 +1244,11 @@ if (isset($_POST['maintype'])) {
         // Bind custom search input
         $('#customTableSearch').on('keyup', function() {
           table.search(this.value).draw();
+        });
+
+        $('#entriesSelect').on('change', function() {
+          const value = parseInt($(this).val(), 10);
+          table.page.len(value).draw();
         });
 
         // Input Masks
@@ -1556,7 +1622,7 @@ if (isset($_POST['maintype'])) {
 
 
     <!-- Group Assign employee -->
-    <div id="assemployeemodal" class="modal fade effect-newspaper">
+    <div id="assemployeemodal1" class="modal fade effect-newspaper">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content tx-size-sm">
           <div class="modal-header pd-x-20">
@@ -1623,94 +1689,171 @@ if (isset($_POST['maintype'])) {
           </div>
         </div>
       </div><!-- modal-dialog -->
-    </div><!-- modal -->
+    </div>
 
-    <div id="modaldemo6" class="modal fade">
-      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-        <div class="modal-content bd-0 bg-transparent rounded overflow-hidden">
-          <div class="modal-body pd-0">
-            <div class="row no-gutters">
-              <div class="col-lg-6 bg-primary">
-                <div class="pd-40">
-                  <h4 class="tx-white mg-b-15"><i class="fa fa-bell mg-r-10"></i> inportant Information</h4>
-                  <p class="tx-white op-7 mg-b-10">The upload file MUST be a comma seperated CSV file arranged in the
-                    table structure below.</p>
-                  <p class="tx-white op-7 mg-b-20">All headers must be removed and first colun must be User ID column.
-                    Check sample file below</p>
-                  <p class="tx-white tx-13">
-                    <span class="tx-uppercase tx-medium d-block mg-b-5">Table Structure:</span>
-                    <span class="op-7">
-                      User ID = CSV column[0]</br>
-                      First Name = CSV column[1]</br>
-                      Middle Name = CSV column[2]</br>
-                      Last Name = CSV column[3]</br>
-                      Email Address = CSV column[4]</br>
-                      Full Address = CSV column[5]</br>
-                      Gender = CSV column[6]</br>
-                      Phone Number = CSV column[7]</br>
-                      Next of Kin = CSV column[8]</br>
-                      Date of Birth = CSV column[9]
-                    </span>
-                  </p>
-                  <div class="mg-t-30 mg-b-0 tx-white tx-12">Sample CSV file? <a href="BIPATAS_sample_file.csv"
-                      class="tx-white" download rel="noopener noreferrer" target="_blank"> Click to Download</a></div>
+    <!-- Group Assign Modal -->
+    <!-- Assign Users Modal -->
+    <div class="modal fade" id="assemployeemodal" tabindex="-1" aria-labelledby="assignUsersModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content p-4 rounded-3 shadow">
+          <div class="modal-header border-0">
+            <h5 class="modal-title" id="assignUsersModalLabel">Assign User(s)</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <form id="assignUsersForm" method="POST" action="">
+            <div class="modal-body">
+              <!-- Assignment Type -->
+              <div class="mb-4">
+                <label class="form-label fw-semibold">Assignment Type <span class="text-danger">*</span></label>
+                <div class="d-flex flex-wrap gap-3" id="assignmentType">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="assignmentType" id="employmentType" value="1" required>
+                    <label class="form-check-label" for="employmentType">Employment Type</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="assignmentType" id="workSchedule" value="3">
+                    <label class="form-check-label" for="workSchedule">Work Schedule</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="assignmentType" id="department" value="2">
+                    <label class="form-check-label" for="department">Department</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="assignmentType" id="location" value="4">
+                    <label class="form-check-label" for="location">Location</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="assignmentType" id="salaryScale" value="5">
+                    <label class="form-check-label" for="salaryScale">Salary Scale</label>
+                  </div>
                 </div>
-              </div><!-- col-6 -->
-              <div class="col-lg-6 bg-white">
-                <div class="pd-30">
-                  <form method="POST" action="" enctype="multipart/form-data">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                    <div class="pd-x-30 pd-y-10">
-                      <h3 class="tx-inverse  mg-b-5">Upload Users</h3>
-                      <p>Please read and undersand instructions before upload!</p>
-                      <br>
+              </div>
 
-                      <div class="form-group mg-b-15">
-                        <label>CSV file to upload: <span class="tx-danger">*</span></label>
-                        <input type="file" name="file" id="filecsv" class="form-control pd-y-12"
-                          onchange="return fileValidation3()" required />
-                      </div><!-- form-group -->
+              <!-- Employment Type (Select2-like) -->
+              <div class="mb-4">
+                <label class="form-label fw-semibold">Employment Type</label>
+                <select class="form-select select2 form-control p-3" id="employmentSelect" name="employmenttype" data-placeholder="Choose type">
+                  <option></option>
+                  <?php
+                  $employmenttypes = mysqli_query($conn, "SELECT * FROM employmenttype ORDER BY name ASC");
+                  while ($et = mysqli_fetch_assoc($employmenttypes)) {
+                    echo '<option value="' . $et["id"] . '">' . $et["name"] . '</option>';
+                  }
+                  ?>
+                </select>
+              </div>
 
-                      <div class="form-group mg-b-15">
-                        <label>Country: <span class="tx-danger">*</span></label>
-                        <select class="form-control select2 " name="country" id="countryU"
-                          data-placeholder="Choose Country" onchange="ChangeStateU(this.value)" required>
-                          <option value="">Choose Country</option>
-                          <?php
-                          $intload14gb = mysqli_query($conn, "SELECT * FROM country ORDER BY id asc");
-                          while ($intload14agb = mysqli_fetch_array($intload14gb)) {
-                            $inid14gb = $intload14agb["id"];
-                            $iname14gb = $intload14agb["name"];
-                          ?>
-                            <option value="<?php echo $inid14gb; ?>"><?php echo $iname14gb; ?></option>
-                          <?php
-                          }
-                          ?>
-                        </select>
+              <!-- Select Users (Multi-select with search) -->
+              <div class="mb-4">
+                <label class="form-label fw-semibold">Select User(s) <span class="text-danger">*</span></label>
+                <select class="form-select select2" id="selectUsers" name="employee[]" multiple required>
+                  <?php
+                  $users = mysqli_query($conn, "SELECT * FROM employee WHERE status='Active' AND dele='0' AND company='$companyMain' ORDER BY lname ASC");
+                  while ($emp = mysqli_fetch_assoc($users)) {
+                    $id = $emp['id'];
+                    $fullname = $emp['lname'] . ' ' . $emp['mname'] . ' ' . $emp['fname'];
+                    echo '<option value="' . $id . '">(' . $emp['employeeid'] . ') ' . $fullname . '</option>';
+                  }
+                  ?>
+                </select>
+              </div>
+            </div>
 
-                      </div><!-- form-group -->
-                      <div class="form-group mg-b-20" id="stateidU">
-                        <label>State: <span class="tx-danger">*</span></label>
-                        <select class="form-control select2 " name="state" data-placeholder="Choose State" required>
-                          <option value="">Choose State</option>
-                        </select>
-                      </div><!-- form-group -->
+            <div class="modal-footer border-0 pt-0">
+              <button type="submit" class="btn btn-primary">Assign User(s)</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
 
-                      <input class="btn btn-primary pd-y-12 btn-block" type="submit" name="submit_file"
-                        value="Upload Users" />
 
-                    </div>
-                  </form>
-                </div><!-- pd-20 -->
-              </div><!-- col-6 -->
-            </div><!-- row -->
 
-          </div><!-- modal-body -->
-        </div><!-- modal-content -->
-      </div><!-- modal-dialog -->
-    </div><!-- modal -->
+
+    <!-- Import Modal -->
+    <div class="modal fade" id="modaldemo6" tabindex="-1" aria-labelledby="importModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-md modal-dialog-centered">
+        <div class="modal-content rounded-4">
+
+          <!-- Modal Header -->
+          <div class="modal-header border-0">
+            <h3 class="modal-title fw-bold text-dark" id="importModalLabel">Import Employee Info</h3>
+            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <!-- Modal Body -->
+          <div class="modal-body px-4">
+            <form method="POST" action="" enctype="multipart/form-data">
+
+              <!-- Upload Instructions -->
+              <div class="mb-3">
+                <h6 class="fw-bold text-dark">Important information</h6>
+                <p class="text-muted mb-1">The upload file MUST be a comma seperated CSV file arranged in the table structure below.
+                  All headers must be removed and first colun must be User ID column. Check sample file below</p>
+                <ul class="small text-muted ps-3 mb-3">
+                  <li>User ID = CSV column[0]</li>
+                  <li>First Name = CSV column[1]</li>
+                  <li>Middle Name = CSV column[2]</li>
+                  <li>Last Name = CSV column[3]</li>
+                  <li>Email Address = CSV column[4]</li>
+                  <li>Full Address = CSV column[5]</li>
+                  <li>Gender = CSV column[6]</li>
+                  <li>Phone Number = CSV column[7]</li>
+                  <li>Next of Kin = CSV column[8]</li>
+                  <li>Date of Birth = CSV column[9]</li>
+                </ul>
+              </div>
+
+              <!-- CSV File Upload -->
+              <div class="mb-4">
+                <label class="form-label fw-semibold">CSV File <span class="text-danger">*</span></label>
+                <div class="d-flex align-items-center p-3 bg-white border rounded shadow-sm" id="fileContainer">
+                  <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/yrtdlp90_expires_30_days.png" width="22" height="22" class="me-2" />
+                  <span id="fileName" class="me-auto text-dark">No file chosen</span>
+                  <input type="file" name="file" id="filecsv" class="d-none" onchange="handleFileChange()" required>
+                  <label for="filecsv" class="btn btn-sm btn-light-secondary text-dark me-2 mb-0">Choose File</label>
+                  <button type="button" class="btn btn-sm btn-light-danger d-none" id="deleteBtn" onclick="clearFile()">Delete</button>
+                </div>
+              </div>
+
+              <!-- Country -->
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Country <span class="text-danger">*</span></label>
+                <select class="form-select" name="country" id="countryU" onchange="ChangeStateU(this.value)" required>
+                  <option value="">Choose Country</option>
+                  <?php
+                  $intload14gb = mysqli_query($conn, "SELECT * FROM country ORDER BY id ASC");
+                  while ($intload14agb = mysqli_fetch_array($intload14gb)) {
+                    $inid14gb = $intload14agb["id"];
+                    $iname14gb = $intload14agb["name"];
+                    echo "<option value=\"$inid14gb\">$iname14gb</option>";
+                  }
+                  ?>
+                </select>
+              </div>
+
+              <!-- State -->
+              <div class="mb-4" id="stateidU">
+                <label class="form-label fw-semibold">State <span class="text-danger">*</span></label>
+                <select class="form-select" name="state" required>
+                  <option value="">Choose State</option>
+                </select>
+              </div>
+
+              <!-- Submit -->
+              <button type="submit" name="submit_file" class="btn btn-primary text-white w-100 py-3 fw-bold rounded-pill">
+                Upload Users
+              </button>
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
 
     <!-- Modal -->
     <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
@@ -1731,6 +1874,59 @@ if (isset($_POST['maintype'])) {
         </div>
       </div>
     </div>
+
+  </main>
+
+
+
+  <!-- JS for file preview & delete -->
+  <script>
+    function handleFileChange() {
+      const fileInput = document.getElementById('filecsv');
+      const fileName = document.getElementById('fileName');
+      const deleteBtn = document.getElementById('deleteBtn');
+
+      if (fileInput.files.length > 0) {
+        fileName.textContent = fileInput.files[0].name;
+        deleteBtn.classList.remove('d-none');
+      } else {
+        fileName.textContent = "No file chosen";
+        deleteBtn.classList.add('d-none');
+      }
+    }
+
+    function clearFile() {
+      const fileInput = document.getElementById('filecsv');
+      const fileName = document.getElementById('fileName');
+      const deleteBtn = document.getElementById('deleteBtn');
+
+      fileInput.value = '';
+      fileName.textContent = "No file chosen";
+      deleteBtn.classList.add('d-none');
+    }
+
+    // $(document).ready(function() {
+    //   $('.select2').select2({
+    //     dropdownParent: $('#assemployeemodal')
+    //   });
+    // });
+  </script>
+
+  <!-- Select2 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+  <!-- Select2 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+  <script>
+    // Initialize Select2
+    $(document).ready(function() {
+      $('.select2').select2({
+        width: '100%',
+        dropdownParent: $('#assemployeemodal')
+      });
+    });
+  </script>
 
 </body>
 

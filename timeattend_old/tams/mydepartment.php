@@ -274,9 +274,6 @@ include("" . __DIR__ . "/pageName.php");
           $createdby         = $emp["createdby"];
           $profilepic        = $emp["profilepic"];
 
-          // Safe fallback for all lookups
-          $getval = fn($query) => mysqli_fetch_assoc(mysqli_query($conn, $query)) ?? [];
-
           $location       = $getval("SELECT locationname FROM location WHERE id = '$location_id' AND company = '$companyMain'")['locationname'] ?? '';
           $mainCountry    = $getval("SELECT name FROM country WHERE id = '$country_id'")['name'] ?? '';
           $department     = $getval("SELECT departmentname FROM departments WHERE id = '$department_id' AND company = '$companyMain'")['departmentname'] ?? '';
@@ -354,7 +351,10 @@ include("" . __DIR__ . "/pageName.php");
                 </div>
                 <div class="modal-body">
                   <div class="text-center mb-4">
-                    <img src="../images/employee/<?= $profilepic ?>" class="rounded-circle mb-2" width="100" height="100" alt="User Avatar">
+                    <center>
+
+                      <img src="../images/employee/<?= $profilepic ?>" class="rounded-circle mb-2" width="100" height="100" alt="User Avatar">
+                    </center>
                     <h4 class="fw-bold mb-0"><?= $lname . " " . $mname . " " . $fname ?></h4>
                     <small class="text-muted"><?= $employmenttype ?></small>
                   </div>
@@ -518,7 +518,10 @@ include("" . __DIR__ . "/pageName.php");
 
             <div class="modal-body">
               <div class="text-center mb-4">
-                <img src="../images/employee/<?= $profilepic ?>" class="rounded-circle mb-2" width="100" height="100" alt="User Avatar">
+                <center>
+
+                  <img src="../images/employee/<?= $profilepic ?>" class="rounded-circle mb-2" width="100" height="100" alt="User Avatar">
+                </center>
                 <h4 class="fw-bold mb-0"><?= $lname . " " . $mname . " " . $fname; ?></h4>
                 <small class="text-muted"><?= $employmenttype ?></small>
               </div>

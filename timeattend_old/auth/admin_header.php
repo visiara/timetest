@@ -64,5 +64,27 @@ include_once('../includes/config.php');
         .odd td {
             border-bottom: 1px solid grey;
         } */
+
+        .btn-primary {
+            color: white !important;
+        }
+
+        .overlay-card {
+            max-width: 900px;
+            margin: 60px auto;
+            box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.08);
+            border-radius: 1rem;
+        }
+
+        .border-divider {
+            height: 2px;
+            background-color: #eee;
+        }
+
+        .scroll-handle {
+            width: 13px;
+            height: 25px;
+            background-color: #c1c1c1;
+        }
     </style>
 </head>
