@@ -86,5 +86,29 @@ include_once('../includes/config.php');
             height: 25px;
             background-color: #c1c1c1;
         }
+
+        /* Fix overflow and height issues */
+        .select2-container .select2-selection--single {
+            height: 38px;
+            /* Match Bootstrap form-control */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        /* Text inside the selection */
+        .select2-container .select2-selection__rendered {
+            padding-right: 30px;
+            /* Add space for arrow */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        /* Arrow positioning */
+        .select2-container--default .select2-selection--single .select2-selection__arrow {
+            height: 100%;
+            right: 6px;
+        }
     </style>
 </head>

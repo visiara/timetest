@@ -862,7 +862,7 @@ if (isset($_POST['maintype'])) {
                       </i>
                     </a>
                     <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-                      <div class="menu-item"><a href="#" class="menu-link px-3 fw-bold" data-bs-toggle="modal" data-bs-target="#viewEmployeeModal<?= $eid ?>">View profile</a></div>
+                      <div class="menu-item"><a href="#" class="menu-link px-3 fw-bold" data-toggle="modal" data-target="#viewEmployeeModal<?= $eid ?>">View profile</a></div>
                       <!-- <div class="menu-item"><a href="" class="menu-link px-3 fw-bold" onclick="EditEmployee(<?= $eid ?>);" data-toggle="modal" data-target="#editemployee">Edit details</a></div>
                       <div class="menu-item"><a href="?activate=<?= $onoff ?>&id=<?= $eid ?>" id="<?= $onoff ?>" class="menu-link px-3 fw-bold" onclick="return confirmActivation(this.id);"><?= $actionText ?></a></div>
                       <div class="menu-item"><a href="?did=<?= $eid ?>" class="menu-link px-3 text-danger fw-bold" onclick="return confirmDelete();">Delete account</a></div> -->
@@ -873,7 +873,7 @@ if (isset($_POST['maintype'])) {
                     <div class="modal-dialog modal-dialog-centered modal-md">
                       <div class="modal-content rounded-4 p-4">
                         <div class="modal-header border-0 pb-0">
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                         </div>
 
                         <div class="modal-body">
@@ -1315,8 +1315,6 @@ if (isset($_POST['maintype'])) {
       }
     </script>
 
-
-
     <!-- add employee -->
     <div id="addemployee" class="modal fade effect-newspaper">
       <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -1621,148 +1619,92 @@ if (isset($_POST['maintype'])) {
     </div><!-- modal -->
 
 
-    <!-- Group Assign employee -->
-    <div id="assemployeemodal1" class="modal fade effect-newspaper">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content tx-size-sm">
-          <div class="modal-header pd-x-20">
-            <h6 class="tx-14 mg-b-0 tx-uppercase tx-inverse tx-bold">Assign User (s)</h6>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body pd-0">
-            <form id="assemployeeshow" action="" method="POST">
-              <div class="row no-gutters">
-                <div class="col-lg-12 bg-white">
-                  <div class="pd-20">
-                    <div class=" mg-b-20">
-                      <div class="form-group mg-b-0-force">
-                        <label>Assignment Type: <span class="tx-danger">*</span></label>
-                        <select class="form-control select2" id="atype" name="atype"
-                          data-placeholder="Choose what to assign" onchange="ass(this.value);" required>
-                          <option value="">Choose what to assign</option>
-                          <option value="1">Employment Type</option>
-                          <option value="3">Work (Shift) Schedule</option>
-                          <option value="2">Department</option>
-                          <option value="4">Location</option>
-                          <option value="5">Salary Scale</option>
-                        </select>
-                      </div><!-- form-group -->
-                    </div>
-
-                    <div id="assedit">
-
-                    </div>
-
-                    <div class=" mg-b-40">
-                      <div class="form-group mg-b-0-force">
-                        <label>Select User: <span class="tx-danger">*</span></label>
-                        <select class="form-control select2" id="fruit_select" name="employee[]"
-                          data-placeholder="Select User(s)" size="10" multiple required>
-                          <?php
-                          $intload3vb = mysqli_query($conn, "SELECT * FROM employee WHERE status='Active' AND dele='0' AND company='$companyMain' ORDER BY lname asc");
-                          while ($intload3avb = mysqli_fetch_array($intload3vb)) {
-                            $inid3vb = $intload3avb["id"];
-                            $lname3vb = $intload3avb["lname"];
-                            $mname3vb = $intload3avb["mname"];
-                            $fname3vb = $intload3avb["fname"];
-                            $employeeid3vb = $intload3avb["employeeid"];
-                          ?>
-                            <option value="<?php echo $inid3vb; ?>">( <?php echo $employeeid3vb; ?> )
-                              <?php echo $lname3vb . " " . $mname3vb . " " . $fname3vb; ?>
-                            </option>
-                          <?php
-                          }
-                          ?>
-                        </select>
-                      </div><!-- form-group -->
-                    </div>
-                  </div>
-                </div>
-              </div><!-- row -->
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-primary tx-size-xs" form="assemployeeshow">Assign User(s)</button>
-            <button type="button" class="btn btn-secondary tx-size-xs" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div><!-- modal-dialog -->
-    </div>
 
     <!-- Group Assign Modal -->
     <!-- Assign Users Modal -->
     <div class="modal fade" id="assemployeemodal" tabindex="-1" aria-labelledby="assignUsersModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-dialog modal-dialog-centered modal-md">
         <div class="modal-content p-4 rounded-3 shadow">
           <div class="modal-header border-0">
             <h5 class="modal-title" id="assignUsersModalLabel">Assign User(s)</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
           </div>
 
-          <form id="assignUsersForm" method="POST" action="">
+          <form id="assemployeeshow" method="POST" action="">
             <div class="modal-body">
               <!-- Assignment Type -->
               <div class="mb-4">
                 <label class="form-label fw-semibold">Assignment Type <span class="text-danger">*</span></label>
-                <div class="d-flex flex-wrap gap-3" id="assignmentType">
+                <div class="d-flex flex-wrap gap-3" id="atype">
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="assignmentType" id="employmentType" value="1" required>
-                    <label class="form-check-label" for="employmentType">Employment Type</label>
+                    <input class="form-check-input" type="radio" name="atype" value="1" required onchange="ass(this.value)">
+                    <label class="form-check-label">Employment Type</label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="assignmentType" id="workSchedule" value="3">
-                    <label class="form-check-label" for="workSchedule">Work Schedule</label>
+                    <input class="form-check-input" type="radio" name="atype" value="2" onchange="ass(this.value)">
+                    <label class="form-check-label">Department</label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="assignmentType" id="department" value="2">
-                    <label class="form-check-label" for="department">Department</label>
+                    <input class="form-check-input" type="radio" name="atype" value="3" onchange="ass(this.value)">
+                    <label class="form-check-label">Work Schedule</label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="assignmentType" id="location" value="4">
-                    <label class="form-check-label" for="location">Location</label>
+                    <input class="form-check-input" type="radio" name="atype" value="4" onchange="ass(this.value)">
+                    <label class="form-check-label">Location</label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="assignmentType" id="salaryScale" value="5">
-                    <label class="form-check-label" for="salaryScale">Salary Scale</label>
+                    <input class="form-check-input" type="radio" name="atype" value="5" onchange="ass(this.value)">
+                    <label class="form-check-label">Salary Scale</label>
                   </div>
                 </div>
               </div>
 
-              <!-- Employment Type (Select2-like) -->
-              <div class="mb-4">
-                <label class="form-label fw-semibold">Employment Type</label>
-                <select class="form-select select2 form-control p-3" id="employmentSelect" name="employmenttype" data-placeholder="Choose type">
-                  <option></option>
-                  <?php
-                  $employmenttypes = mysqli_query($conn, "SELECT * FROM employmenttype ORDER BY name ASC");
-                  while ($et = mysqli_fetch_assoc($employmenttypes)) {
-                    echo '<option value="' . $et["id"] . '">' . $et["name"] . '</option>';
-                  }
-                  ?>
-                </select>
-              </div>
+              <!-- Dynamically loaded assignment select -->
+              <div id="assedit" class="mb-4"></div>
 
-              <!-- Select Users (Multi-select with search) -->
-              <div class="mb-4">
+              <!-- Searchable Multi-User Checkbox -->
+              <div class="mb-3">
                 <label class="form-label fw-semibold">Select User(s) <span class="text-danger">*</span></label>
-                <select class="form-select select2" id="selectUsers" name="employee[]" multiple required>
+
+                <!-- Search and Select All -->
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <input type="text" class="form-control mb-2 w-50" placeholder="Search users..." onkeyup="filterUsers(this)">
+                  <div class="form-check mb-0">
+                    <input class="form-check-input" type="checkbox" id="selectAll" onclick="toggleAllUsers(this)">
+                    <label class="form-check-label small" for="selectAll">Select All</label>
+                  </div>
+                </div>
+
+                <!-- User List -->
+                <div id="userList" class="border rounded p-2" style="max-height: 250px; overflow-y: auto;">
                   <?php
                   $users = mysqli_query($conn, "SELECT * FROM employee WHERE status='Active' AND dele='0' AND company='$companyMain' ORDER BY lname ASC");
                   while ($emp = mysqli_fetch_assoc($users)) {
                     $id = $emp['id'];
-                    $fullname = $emp['lname'] . ' ' . $emp['mname'] . ' ' . $emp['fname'];
-                    echo '<option value="' . $id . '">(' . $emp['employeeid'] . ') ' . $fullname . '</option>';
+                    $name = $emp['lname'] . ' ' . $emp['mname'] . ' ' . $emp['fname'];
+                    $empID = $emp['employeeid'];
+                    $pic = !empty($emp['profilepic']) ? '../images/profilepics/' . $emp['profilepic'] : 'https://ui-avatars.com/api/?name=' . urlencode($name) . '&background=0D8ABC&color=fff';
+                    echo '
+      <div class="form-check user-entry d-flex align-items-center gap-2 border-bottom py-2">
+        <img src="' . $pic . '" alt="user" class="rounded-circle" width="36" height="36">
+        <div class="d-flex flex-column flex-grow-1">
+          <label class="form-check-label d-flex align-items-center gap-2 mb-0" for="emp' . $id . '">
+            <input class="form-check-input user-checkbox" type="checkbox" name="employee[]" value="' . $id . '" id="emp' . $id . '" onchange="toggleSelectedState(this)">
+            <span>(' . $empID . ') ' . $name . '</span>
+            <span class="text-black d-none selected-badge"><i class="bi bi-check-circle-fill"></i> Selected</span>
+          </label>
+        </div>
+      </div>';
                   }
                   ?>
-                </select>
+                </div>
               </div>
+
             </div>
 
             <div class="modal-footer border-0 pt-0">
-              <button type="submit" class="btn btn-primary">Assign User(s)</button>
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" form="assemployeeshow">Assign User(s)</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
           </form>
         </div>
@@ -1910,6 +1852,39 @@ if (isset($_POST['maintype'])) {
     //     dropdownParent: $('#assemployeemodal')
     //   });
     // });
+
+    function toggleAllUsers(source) {
+      const checkboxes = document.querySelectorAll('.user-checkbox');
+      checkboxes.forEach(cb => {
+        cb.checked = source.checked;
+        toggleSelectedState(cb);
+      });
+    }
+
+    function toggleSelectedState(checkbox) {
+      const badge = checkbox.closest('label').querySelector('.selected-badge');
+      if (checkbox.checked) {
+        badge.classList.remove('d-none');
+      } else {
+        badge.classList.add('d-none');
+      }
+    }
+
+    function filterUsers(input) {
+      const filter = input.value.toLowerCase().trim();
+
+      document.querySelectorAll('#userList .user-entry').forEach(entry => {
+        const spans = entry.querySelectorAll('label span');
+        let nameText = '';
+        spans.forEach(span => {
+          if (!span.classList.contains('selected-badge')) {
+            nameText = span.innerText.toLowerCase();
+          }
+        });
+
+        entry.style.display = nameText.includes(filter) ? '' : 'none';
+      });
+    }
   </script>
 
   <!-- Select2 CSS -->
@@ -1922,8 +1897,9 @@ if (isset($_POST['maintype'])) {
     // Initialize Select2
     $(document).ready(function() {
       $('.select2').select2({
-        width: '100%',
-        dropdownParent: $('#assemployeemodal')
+        dropdownParent: $('#assemployeemodal'),
+        width: '100%'
+
       });
     });
   </script>
