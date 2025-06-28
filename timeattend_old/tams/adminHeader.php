@@ -1,3 +1,8 @@
+<?php
+$getval = fn($query) => mysqli_fetch_assoc(mysqli_query($conn, $query)) ?? [];
+
+
+?>
 <script>
     function dede() {
         var e = document.getElementById("ppic").files[0].name;

@@ -704,14 +704,6 @@ if (isset($_POST['maintype'])) {
 
   <link rel="stylesheet" type="text/css" href="../multi.min.css" />
 
-  <!-- Bracket CSS -->
-  <!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
-  <link href=".../assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-  <link href=".../assets/plugins/global/style.bundle.css" rel="stylesheet" type="text/css" />
-
-
-  <link rel="stylesheet" href="<?php echo $localUrl; ?>css/admin/admin.css?rand=<?php echo rand(); ?>">
-  <link rel="stylesheet" href="<?php echo $localUrl; ?>css/admin/styles.css?rand=<?php echo rand(); ?>">
 
   <style>
     .center {
@@ -739,229 +731,233 @@ if (isset($_POST['maintype'])) {
 
   <!-- ########## START: HEAD PANEL ########## -->
   <?php
-  include "" . __DIR__ . "/rightSidebar.php";
-  ?>
-  <!-- ########## END: HEAD PANEL ########## -->
-
-  <!-- ########## START: RIGHT PANEL ########## -->
-  <?php
+  include("" . __DIR__ . "/pageName.php");
 
   ?>
-  <!-- ########## END: RIGHT PANEL ########## --->
+  <main class="d-flex flex-column overflow-auto mb-4 gap-4 px-3">
 
-  <!-- ########## START: MAIN PANEL ########## -->
-  <!-- br-mainpanel -->
-  <div>
-    <div class="br-pagetitle">
-      <i class="icon icon ion-ios-contact-outline"></i>
-      <div>
-        <h4>User Management</h4>
-        <p class="mg-b-0">User Management Panel - All Users.</p>
-      </div>
-    </div><!-- d-flex -->
+    <!-- ########## END: HEAD PANEL ########## -->
 
-    <div class="">
+    <!-- ########## START: RIGHT PANEL ########## -->
+    <?php
+
+    ?>
+
+    <div class="container">
       <div>
 
         <?php echo $status; ?>
 
-        <div class="d-flex justify-content-between align-items-center">
 
-          <div>
-            <?php if ($noemployeeMain > $allEmployee) { ?>
-              <!--<button class="btn btn-teal" data-toggle="modal" data-target="#addemployee"><i class="fa fa-plus mg-r-10"></i> Add User</button>-->
-              <a href="employedata.php" class="btn btn-teal"><i class="fa fa-plus mg-r-10"></i> Add User</a>
-              <button class="btn btn-teal" data-toggle="modal" data-target="#modaldemo6"><i
-                  class="fa fa-plus mg-r-10"></i> Import User Information</button>
-            <?php } else { ?>
-              <button class="btn btn-danger"><i class="fa fa-plus mg-r-10"></i> Maximum User Reached</button>
-            <?php } ?>
-            <button class="btn btn-teal" data-toggle="modal" data-target="#assemployeemodal"><i
-                class="fa fa-plus mg-r-10"></i> Group Assign User</button>
-          </div>
 
-          <div>
-            <h4>Max User: <?php echo $noemployeeMain; ?></h4>
-          </div>
-
-        </div>
-
-        <div class="table-wrapper mg-t-15">
+        <div class="table-responsive mg-t-15">
           <table class="table align-middle table-row-dashed fs-6 gy-5 mb-0 p-2" id="datatable1">
             <thead class="thead-colored thead-dark">
               <tr>
                 <th class="">ID</th>
-                <th class="wd-15p">Unique ID</th>
-                <th class="wd-15p">User ID</th>
-                <th class="">Full name</th>
+                <th class="wd-20p">Unique ID</th>
+                <th class="wd-20p">Full Name</th>
                 <th class="wd-20p">Location</th>
                 <th class="wd-20p">Department</th>
                 <th class="wd-10p">Status</th>
-                <th class="">Work Schedule</th>
-                <th class="">Level</th>
-                <th class="">Gender</th>
-                <th class="">Phone No</th>
-                <th class="">Email Address</th>
-                <th class="">Address</th>
-                <th class="">State</th>
-                <th class="">Country</th>
-                <th class="">Employment Type</th>
-                <th class="">Next Of Kin</th>
-                <th class="">Date Of Birth</th>
-                <th class="">Picture</th>
-                <th class="">Created By</th>
+                <th class="">Phone number</th>
                 <th class=""></th>
                 <!-- -->
               </tr>
             </thead>
             <tbody>
               <?php
+              $x = 0;
 
-              $x = '0';
-              $huserbd5 = mysqli_query($conn, "SELECT * FROM employee WHERE dele = '0' AND company='$companyMain'");
-              while ($huserb1d5 = mysqli_fetch_array($huserbd5)) {
-                $eid = $huserb1d5["id"];
-                $empuniqid = $huserb1d5["uniqid"];
-                $employeeid = $huserb1d5["employeeid"];
-                $fname = $huserb1d5["fname"];
-                $mname = $huserb1d5["mname"];
-                $lname = $huserb1d5["lname"];
-                $email = $huserb1d5["email"];
-                $address = $huserb1d5["address"];
-                $country = $huserb1d5["country"];
-                $state = $huserb1d5["state"];
-                $gender = $huserb1d5["gender"];
-                $phone = $huserb1d5["phone"];
-                $nextofkin = $huserb1d5["nextofkin"];
-                $dofb = $huserb1d5["dofb"];
-                $employmenttype = $huserb1d5["employmenttype"];
-                $location1 = $huserb1d5["location"];
-                $department1 = $huserb1d5["department"];
-                $workshift1 = $huserb1d5["workshift"];
-                $uname = $huserb1d5["uname"];
-                $pword = $huserb1d5["pword"];
-                $status = $huserb1d5["status"];
-                $createdby = $huserb1d5["createdby"];
-                $profilepic = $huserb1d5["profilepic"];
-                $salaryscale5 = $huserb1d5["salaryscale"];
+              $employees = mysqli_query($conn, "SELECT * FROM employee WHERE dele = '0' AND company='$companyMain'");
 
-                $huya = mysqli_query($conn, "SELECT * FROM salaryscale WHERE id = '$salaryscale5' AND company='$companyMain'");
-                while ($hugya = mysqli_fetch_array($huya)) {
-                  $salaryscale34 = $hugya["nickname"];
+              while ($emp = mysqli_fetch_array($employees)) {
+                $eid           = $emp["id"];
+                $empuniqid     = $emp["uniqid"];
+                $employeeid    = $emp["employeeid"];
+                $fname         = $emp["fname"];
+                $mname         = $emp["mname"];
+                $lname         = $emp["lname"];
+                $email         = $emp["email"];
+                $address       = $emp["address"];
+                $country_id    = $emp["country"];
+                $state_id      = $emp["state"];
+                $gender        = $emp["gender"];
+                $phone         = $emp["phone"];
+                $nextofkin     = $emp["nextofkin"];
+                $dofb          = $emp["dofb"];
+                $employmenttype_id = $emp["employmenttype"];
+                $location_id   = $emp["location"];
+                $department_id = $emp["department"];
+                $workshift_id  = $emp["workshift"];
+                $uname         = $emp["uname"];
+                $pword         = $emp["pword"];
+                $status        = $emp["status"];
+                $createdby     = $emp["createdby"];
+                $profilepic    = $emp["profilepic"];
+                $salaryscale_id = $emp["salaryscale"];
+
+                // Fetch all related data using $getval helper
+                $salaryscale34    = $getval("SELECT nickname FROM salaryscale WHERE id = '$salaryscale_id' AND company='$companyMain'")['nickname'] ?? '';
+                $location         = $getval("SELECT locationname FROM location WHERE id = '$location_id' AND company='$companyMain'")['locationname'] ?? '';
+                $department       = $getval("SELECT departmentname FROM departments WHERE id = '$department_id' AND company='$companyMain'")['departmentname'] ?? '';
+                $workshift        = $getval("SELECT shiftname FROM workshift WHERE id = '$workshift_id' AND company='$companyMain'")['shiftname'] ?? '';
+                $employmenttypey  = $getval("SELECT name FROM employmenttype WHERE id = '$employmenttype_id'")['name'] ?? '';
+
+                $mainCountry          = $getval("SELECT name FROM country WHERE id = '$country_id'")['name'] ?? '';
+                $state            = $getval("SELECT name FROM states WHERE id = '$state_id'")['name'] ?? '';
+
+                // Fetch employee photo
+                $photo_preview = $tehnoimage ?? '';
+                $photo_row = $getval("SELECT photo_preview FROM photos WHERE applicant_id = '$employeeid' AND company='$companyMain'");
+                if (!empty($photo_row)) {
+                  $photo_preview = $photo_row['photo_preview'] ?? $photo_preview;
                 }
 
-                $hu = mysqli_query($conn, "SELECT * FROM location WHERE id = '$location1' AND company='$companyMain'");
-                while ($hug = mysqli_fetch_array($hu)) {
-                  $location = $hug["locationname"];
-                }
+                // UI status logic
+                $statusd     = ($status === "Active") ? "badge-light-success" : "badge-light-danger";
+                $btnactivate = ($status === "Active") ? "btn-danger" : "btn-success";
+                $iconState   = ($status === "Active") ? "bg-success" : "bg-danger";
+                $btnicon     = ($status === "Active") ? "fa-lock" : "fa-lock-open";
+                $actionText  = ($status === "Active") ? "Deactivate user" : "Activate user";
+                $onoff       = ($status === "Active") ? "InActive" : "Active";
 
-                $hu1 = mysqli_query($conn, "SELECT * FROM departments WHERE id = '$department1' AND company='$companyMain'");
-                while ($hug1 = mysqli_fetch_array($hu1)) {
-                  $department = $hug1["departmentname"];;
-                }
-
-                $hu2 = mysqli_query($conn, "SELECT * FROM workshift WHERE id = '$workshift1' AND company='$companyMain'");
-                while ($hug2 = mysqli_fetch_array($hu2)) {
-                  $workshift = $hug2["shiftname"];;
-                }
-
-                $hu3y = mysqli_query($conn, "SELECT * FROM employmenttype WHERE id = '$employmenttype'");
-                while ($hug3y = mysqli_fetch_array($hu3y)) {
-                  $employmenttypey = $hug3y["name"];;
-                }
-
-                $bookpay1 = mysqli_query($conn, "SELECT * FROM photos WHERE applicant_id = '$employeeid' AND company='$companyMain'");
-                $bo = mysqli_num_rows($bookpay1);
-                if ($bo > 0) {
-                  while ($bookpay = mysqli_fetch_array($bookpay1)) {
-                    $photo_preview = $bookpay["photo_preview"];
-                  }
-                }
-
-                $hu3yz = mysqli_query($conn, "SELECT * FROM country WHERE id = '$country'");
-                while ($hug3yz = mysqli_fetch_array($hu3yz)) {
-                  $country = $hug3yz["name"];
-                }
-
-                $hu3yz2 = mysqli_query($conn, "SELECT * FROM states WHERE id = '$state'");
-                while ($hug3yz2 = mysqli_fetch_array($hu3yz2)) {
-                  $state = $hug3yz2["name"];
-                }
-
-                //$photo_preview = empty($photo_preview) ? $tehnoimage : $photo_preview;
-
-                if ($status == "Active") {
-                  $statusd = "bg-success";
-                  $btnactivate = "btn-danger";
-                  $btnicon = "fa-lock";
-                  $onoff = "InActive";
-                } else {
-                  $statusd = "bg-danger";
-                  $btnactivate = "btn-success";
-                  $btnicon = "fa-lock-open";
-                  $onoff = "Active";
-                }
-
-                $x = $x + '1';
+                $x++;
               ?>
-                <tr>
-                  <td><?php echo $x; ?></td>
-                  <td><?php echo $empuniqid; ?></td>
-                  <td><?php echo $employeeid; ?></td>
-                  <td><?php echo $lname . " " . $mname . " " . $fname; ?></td>
-                  <td><?php echo $location; ?></td>
-                  <td><?php echo $department; ?></td>
-                  <td>
-                    <div class="progress ht-30">
-                      <div class="progress-bar <?php echo $statusd; ?> wd-100p" role="progressbar" aria-valuenow="100"
-                        aria-valuemin="0" aria-valuemax="100"><?php echo $status; ?></div>
+                <tr class="fw-semibold fs-6 text-gray-800 border-bottom-2 border-gray-200">
+                  <td><?= $x ?>.</td>
+                  <td><?= $empuniqid ?></td>
+                  <td class="d-flex align-items-center">
+                    <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
+                      <a href="#">
+                        <div class="symbol-label">
+                          <?php if (!empty($photo_row)): ?>
+                            <img src="data:image/png;base64,<?= $photo_preview ?>" class="w-100">
+                          <?php else: ?>
+                            <img src="../images/employee/<?= $profilepic ?>" class="w-100">
+                          <?php endif; ?>
+                        </div>
+
+                      </a>
+                    </div>
+                    <div class="d-flex flex-column">
+                      <a href="#" class="text-gray-800 text-hover-black mb-1"><?= $lname . " " . $mname . " " . $fname ?></a>
+                      <span><?= $email ?></span>
                     </div>
                   </td>
-                  <td><?php echo $workshift; ?></td>
-                  <td><?php echo $salaryscale34; ?></td>
-                  <td><?php echo $gender; ?></td>
-                  <td><?php echo $phone; ?></td>
-                  <td><?php echo $email; ?></td>
-                  <td><?php echo $address; ?></td>
-                  <td><?php echo $state; ?></td>
-                  <td><?php echo $country; ?></td>
-                  <td><?php echo $employmenttypey; ?></td>
-                  <td><?php echo $nextofkin; ?></td>
-                  <td><?php echo $dofb; ?></td>
+                  <td><?= $location ?></td>
+                  <td><?= $department ?></td>
                   <td>
-                    <?php
-                    if ($bo > 0) {
-                    ?>
-                      <img src="data:image/png;base64,<?php echo $photo_preview; ?>" class="wd-100 rounded-circle">
-                    <?php
-                    } else {
-                    ?>
-                      <img src="../images/profilepics/<?php echo $profilepic; ?>" class="wd-100 rounded-circle" height="100"
-                        width="100">
-                    <?php
-                    }
-                    ?>
+                    <span class="badge <?= $statusd ?>">
+                      <span class="bullet <?= $iconState ?> me-2 h-5px w-5px fw-bold"></span> <?= $status ?>
+                    </span>
                   </td>
-                  <td><?php echo $createdby; ?></td>
+                  <td><?= $phone ?></td>
                   <td>
-                    <a href="?activate=<?php echo $onoff; ?>&id=<?php echo $eid; ?>"
-                      class="btn <?php echo $btnactivate; ?> btn-icon" id="<?php echo $onoff; ?>"
-                      onclick="return confirmActivation(this.id);">
-                      <div><i class="fa <?php echo $btnicon; ?>"></i></div>
+                    <a href="#" class="btn btn-flex btn-center btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                      <i class="ki-duotone ki-dots-horizontal" style="font-size: 40px;">
+                        <span class="path1"></span>
+                        <span class="path2"></span>
+                        <span class="path3"></span>
+                      </i>
                     </a>
-                    <!--<a href="javascript:;" class="btn btn-primary btn-icon" onclick="Edit(<?php echo $eid; ?>);" data-toggle="modal" data-target="#editemployee">
-  <div><i class="fa fa-edit"></i></div>
-</a>-->
-                    <a href="employedata.php?q=<?php echo $eid; ?>" class="btn btn-primary btn-icon">
-                      <div><i class="fa fa-edit"></i></div>
-                    </a>
-                    <a href="?did=<?php echo $eid; ?>" class="btn btn-danger btn-icon" onclick="return confirmDelete();">
-                      <div><i class="fa fa-trash"></i></div>
-                    </a>
-                    <a href="employedata.php?q=<?php echo $eid; ?>&x=x" class="btn btn-info btn-icon">
-                      <div><i class="fa fa-eye"></i></div>
-                    </a>
+                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
+                      <div class="menu-item"><a href="#" class="menu-link px-3 fw-bold" data-toggle="modal" data-target="#viewEmployeeModal<?= $eid ?>">View profile</a></div>
+                      <!-- <div class="menu-item"><a href="" class="menu-link px-3 fw-bold" onclick="EditEmployee(<?= $eid ?>);" data-toggle="modal" data-target="#editemployee">Edit details</a></div>
+                      <div class="menu-item"><a href="?activate=<?= $onoff ?>&id=<?= $eid ?>" id="<?= $onoff ?>" class="menu-link px-3 fw-bold" onclick="return confirmActivation(this.id);"><?= $actionText ?></a></div>
+                      <div class="menu-item"><a href="?did=<?= $eid ?>" class="menu-link px-3 text-danger fw-bold" onclick="return confirmDelete();">Delete account</a></div> -->
+                    </div>
                   </td>
+
+                  <div class="modal fade" id="viewEmployeeModal<?= $eid ?>" tabindex="-1" aria-labelledby="viewUserModalLabel<?= $eid ?>" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-md">
+                      <div class="modal-content rounded-4 p-4">
+                        <div class="modal-header border-0 pb-0">
+                          <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <div class="modal-body">
+                          <div class="text-center mb-4">
+                            <center>
+
+                              <img src="../images/employee/<?= $profilepic ?>" class="rounded-circle mb-2" width="100" height="100" alt="User Avatar">
+                            </center>
+
+                            <h4 class="fw-bold mb-0"><?= $lname . " " . $mname . " " . $fname; ?></h4>
+                            <small class="text-muted"><?= $employmenttypey ?></small>
+                          </div>
+
+                          <div class="row mb-4">
+                            <div class="col-md-6 mb-3">
+                              <strong class="text-muted d-block">Unique ID</strong>
+                              <span><?= $empuniqid ?></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                              <strong class="text-muted d-block">Location</strong>
+                              <span><?= $location ?></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                              <strong class="text-muted d-block">Department</strong>
+                              <span class="badge bg-light text-dark"><?= $department ?></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                              <strong class="text-muted d-block">Account Status</strong>
+                              <span class="badge <?= $status == 'Active' ? 'bg-success' : 'bg-danger' ?> text-white">● <?= $status ?></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                              <strong class="text-muted d-block">Phone number</strong>
+                              <span><?= $phone ?></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                              <strong class="text-muted d-block">Work schedule</strong>
+                              <span><?= $workshift ?></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                              <strong class="text-muted d-block">Gender</strong>
+                              <span><?= $gender ?></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                              <strong class="text-muted d-block">Email</strong>
+                              <span><?= $email ?></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                              <strong class="text-muted d-block">Address</strong>
+                              <span><?= $address ?></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                              <strong class="text-muted d-block">State</strong>
+                              <span><?= $state ?></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                              <strong class="text-muted d-block">Country</strong>
+                              <span><?= $mainCountry ?></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                              <strong class="text-muted d-block">Employment type</strong>
+                              <span><?= $employmenttypey ?></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                              <strong class="text-muted d-block">Date of Birth</strong>
+                              <span><?= $dofb ?></span>
+                            </div>
+                            <div class="col-md-6 mb-3 d-flex align-items-center">
+                              <img src="https://i.pravatar.cc/30" class="rounded-circle me-2" width="30" height="30" alt="Creator">
+                              <span class="text-muted small"><?= $createdby ?></span>
+                            </div>
+                          </div>
+
+                          <div class="d-grid gap-2">
+
+                            <button class="btn btn-light-primary">View Basic Information</button>
+
+                            <a href="?activate=<?= $onoff ?>&id=<?= $eid ?>" id="<?= $onoff ?>" class="btn btn-light-danger" onclick="return confirmActivation(this.id);">Deactivate User</a>
+
+                            <a href="?activate=<?= $onoff ?>&id=<?= $eid ?>" id="<?= $onoff ?>" class="btn btn-danger" onclick="return confirmDelete(this.id);">Delete User Account</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </tr>
               <?php
                 $location = "";
@@ -1013,6 +1009,7 @@ if (isset($_POST['maintype'])) {
       </div><!-- br-section-wrapper -->
     </div><!--  -->
 
+
     <?php
 
     // BE IN ALL PAGES
@@ -1020,776 +1017,892 @@ if (isset($_POST['maintype'])) {
 
     ?>
 
-  </div>
-  <!-- ########## END: MAIN PANEL ########## -->
+    </div>
+    <!-- ########## END: MAIN PANEL ########## -->
 
-  <script src="../lib/jquery/jquery.min.js"></script>
-  <script src="../lib/jquery-ui/ui/widgets/datepicker.js"></script>
-  <script src="../lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="../lib/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-  <script src="../lib/moment/min/moment.min.js"></script>
-  <script src="../lib/peity/jquery.peity.min.js"></script>
-  <script src="../lib/highlightjs/highlight.pack.min.js"></script>
-  <script src="../lib/datatables.net/js/jquery.dataTables.min.js"></script>
-  <script src="../lib/datatables.net-dt/js/dataTables.dataTables.min.js"></script>
-  <script src="../lib/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-  <script src="../lib/datatables.net-responsive-dt/js/responsive.dataTables.min.js"></script>
-  <script src="../lib/select2/js/select2.min.js"></script>
-  <script src="../lib/jquery.maskedinput/jquery.maskedinput.js"></script>
+    <script src="../lib/jquery/jquery.min.js"></script>
+    <script src="../lib/jquery-ui/ui/widgets/datepicker.js"></script>
+    <script src="../lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../lib/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="../lib/moment/min/moment.min.js"></script>
+    <script src="../lib/peity/jquery.peity.min.js"></script>
+    <script src="../lib/highlightjs/highlight.pack.min.js"></script>
+    <script src="../lib/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="../lib/datatables.net-dt/js/dataTables.dataTables.min.js"></script>
+    <script src="../lib/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../lib/datatables.net-responsive-dt/js/responsive.dataTables.min.js"></script>
+    <script src="../lib/select2/js/select2.min.js"></script>
+    <script src="../lib/jquery.maskedinput/jquery.maskedinput.js"></script>
 
-  <script src="../js/bracket.js"></script>
-  <script src="../js/map.shiftworker.js"></script>
-  <script src="../js/ResizeSensor.js"></script>
-  <script src="../js/dashboard.js"></script>
+    <script src="../js/bracket.js"></script>
+    <script src="../js/map.shiftworker.js"></script>
+    <script src="../js/ResizeSensor.js"></script>
+    <script src="../js/dashboard.js"></script>
 
-  <script src="../multi.min.js"></script>
+    <script src="../multi.min.js"></script>
 
-  <script>
-    $('input[type="file"]').change(function(e) {
-      var fileName = e.target.files[0].name;
-      $('.custom-file-label').html(fileName);
-    });
+    <script>
+      $('input[type="file"]').change(function(e) {
+        var fileName = e.target.files[0].name;
+        $('.custom-file-label').html(fileName);
+      });
 
-    $('#atype').change(function() {
-      var b = $(this).val()
-      ass(b);
-    });
-  </script>
+      $('#atype').change(function() {
+        var b = $(this).val()
+        ass(b);
+      });
+    </script>
 
-  <script>
-    var select = document.getElementById("fruit_select");
-    multi(select, {
-      enable_search: true
-    });
-  </script>
+    <script>
+      var select = document.getElementById("fruit_select");
+      multi(select, {
+        enable_search: true
+      });
+    </script>
 
-  <script>
-    function Edit(str) {
-      var str2 = "<?php echo $companyMain; ?>";
-      if (str.length == 0) {
-        document.getElementById("pasteedit").innerHTML = "";
-        return;
-      } else {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("pasteedit").innerHTML = this.responseText;
+    <script>
+      function Edit(str) {
+        var str2 = "<?php echo $companyMain; ?>";
+        if (str.length == 0) {
+          document.getElementById("pasteedit").innerHTML = "";
+          return;
+        } else {
+          var xmlhttp = new XMLHttpRequest();
+          xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              document.getElementById("pasteedit").innerHTML = this.responseText;
 
-            $('input[type="file"]').change(function(e) {
-              var fileName = e.target.files[0].name;
-              $('.custom-file-label').html(fileName);
+              $('input[type="file"]').change(function(e) {
+                var fileName = e.target.files[0].name;
+                $('.custom-file-label').html(fileName);
+              });
+            }
+          };
+          xmlhttp.open("GET", "editemployee.php?q=" + str + "&com=" + str2, true);
+          xmlhttp.send();
+        }
+      }
+
+      function showpro(str) {
+        var str2 = "<?php echo $companyMain; ?>";
+        if (str.length == 0) {
+          document.getElementById("profiledisplay").innerHTML = "";
+          return;
+        } else {
+          var xmlhttp = new XMLHttpRequest();
+          xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              document.getElementById("profiledisplay").innerHTML = this.responseText;
+            }
+          };
+          xmlhttp.open("GET", "profileshow.php?q=" + str + "&com=" + str2, true);
+          xmlhttp.send();
+        }
+      }
+
+      function ass(str) {
+        var str2 = "<?php echo $companyMain; ?>";
+        if (str.length == 0) {
+          document.getElementById("assedit").innerHTML = "";
+          return;
+        } else {
+          var xmlhttp = new XMLHttpRequest();
+          xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              document.getElementById("assedit").innerHTML = this.responseText;
+            }
+          };
+          xmlhttp.open("GET", "assemployee.php?q=" + str + "&com=" + str2, true);
+          xmlhttp.send();
+        }
+      }
+    </script>
+
+    <script>
+      $(document).ready(function() {
+
+        $('#addemployee').on('shown.bs.modal', function(e) {
+
+          $(function() {
+            'use strict';
+
+            // Input Masks
+            $('#dateMask').mask('9999-99-99');
+
+            // Datepicker
+            $('.fc-datepicker').datepicker({
+              showOtherMonths: true,
+              selectOtherMonths: true,
+              dateFormat: 'yy-mm-dd',
             });
-          }
-        };
-        xmlhttp.open("GET", "editemployee.php?q=" + str + "&com=" + str2, true);
-        xmlhttp.send();
-      }
-    }
 
-    function showpro(str) {
-      var str2 = "<?php echo $companyMain; ?>";
-      if (str.length == 0) {
-        document.getElementById("profiledisplay").innerHTML = "";
-        return;
-      } else {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("profiledisplay").innerHTML = this.responseText;
-          }
-        };
-        xmlhttp.open("GET", "profileshow.php?q=" + str + "&com=" + str2, true);
-        xmlhttp.send();
-      }
-    }
+          });
 
-    function ass(str) {
-      var str2 = "<?php echo $companyMain; ?>";
-      if (str.length == 0) {
-        document.getElementById("assedit").innerHTML = "";
-        return;
-      } else {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("assedit").innerHTML = this.responseText;
-          }
-        };
-        xmlhttp.open("GET", "assemployee.php?q=" + str + "&com=" + str2, true);
-        xmlhttp.send();
-      }
-    }
-  </script>
-
-  <script>
-    $(document).ready(function() {
-
-      $('#addemployee').on('shown.bs.modal', function(e) {
-
-        $(function() {
-          'use strict';
-
-          // Input Masks
-          $('#dateMask').mask('9999-99-99');
-
-          // Datepicker
-          $('.fc-datepicker').datepicker({
-            showOtherMonths: true,
-            selectOtherMonths: true,
-            dateFormat: 'yy-mm-dd',
+          $("#country").on('change', function() {
+            var str = $(this).val();
+            if (str.length == 0) {
+              //document.getElementById("stateid").innerHTML = "";
+              $("#stateid").html("");
+              return;
+            } else {
+              var xmlhttp = new XMLHttpRequest();
+              xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                  //document.getElementById("stateid").innerHTML = this.responseText;
+                  $("#stateid").html(this.responseText);
+                }
+              };
+              xmlhttp.open("GET", "changestate.php?q=" + str, true);
+              xmlhttp.send();
+            }
           });
 
         });
 
-        $("#country").on('change', function() {
-          var str = $(this).val();
-          if (str.length == 0) {
-            //document.getElementById("stateid").innerHTML = "";
-            $("#stateid").html("");
-            return;
-          } else {
-            var xmlhttp = new XMLHttpRequest();
-            xmlhttp.onreadystatechange = function() {
-              if (this.readyState == 4 && this.status == 200) {
-                //document.getElementById("stateid").innerHTML = this.responseText;
-                $("#stateid").html(this.responseText);
-              }
-            };
-            xmlhttp.open("GET", "changestate.php?q=" + str, true);
-            xmlhttp.send();
-          }
-        });
+        $('#editemployee').on('shown.bs.modal', function(e) {
 
-      });
+          $(function() {
+            'use strict';
 
-      $('#editemployee').on('shown.bs.modal', function(e) {
+            // Input Masks
+            $('#dateMask2').mask('9999-99-99');
 
-        $(function() {
-          'use strict';
+            // Datepicker
+            $('.fc-datepicker').datepicker({
+              showOtherMonths: true,
+              selectOtherMonths: true,
+              dateFormat: 'yy-mm-dd',
+            });
 
-          // Input Masks
-          $('#dateMask2').mask('9999-99-99');
-
-          // Datepicker
-          $('.fc-datepicker').datepicker({
-            showOtherMonths: true,
-            selectOtherMonths: true,
-            dateFormat: 'yy-mm-dd',
           });
 
+          $("#country2").on('change', function() {
+            var str = $(this).val();
+            if (str.length == 0) {
+              //document.getElementById("stateid").innerHTML = "";
+              $("#stateid2").html("");
+              return;
+            } else {
+              var xmlhttp = new XMLHttpRequest();
+              xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                  //document.getElementById("stateid").innerHTML = this.responseText;
+                  $("#stateid2").html(this.responseText);
+                }
+              };
+              xmlhttp.open("GET", "changestate.php?q=" + str, true);
+              xmlhttp.send();
+            }
+          });
         });
 
-        $("#country2").on('change', function() {
-          var str = $(this).val();
-          if (str.length == 0) {
-            //document.getElementById("stateid").innerHTML = "";
-            $("#stateid2").html("");
-            return;
-          } else {
-            var xmlhttp = new XMLHttpRequest();
-            xmlhttp.onreadystatechange = function() {
-              if (this.readyState == 4 && this.status == 200) {
-                //document.getElementById("stateid").innerHTML = this.responseText;
-                $("#stateid2").html(this.responseText);
-              }
-            };
-            xmlhttp.open("GET", "changestate.php?q=" + str, true);
-            xmlhttp.send();
+        $('#modaldemo6').on('shown.bs.modal', function(e) {
+
+          $("#countryU").on('change', function() {
+            var str = $(this).val();
+            if (str.length == 0) {
+              //document.getElementById("stateid").innerHTML = "";
+              $("#stateidU").html("");
+              return;
+            } else {
+              var xmlhttp = new XMLHttpRequest();
+              xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                  //document.getElementById("stateid").innerHTML = this.responseText;
+                  $("#stateidU").html(this.responseText);
+                }
+              };
+              xmlhttp.open("GET", "changestate.php?q=" + str, true);
+              xmlhttp.send();
+            }
+          });
+        });
+
+
+      });
+    </script>
+    <script>
+      $(document).ready(function() {
+        'use strict';
+
+        // Initialize DataTable once
+        var table = $('#datatable1').DataTable({
+          responsive: true,
+          language: {
+            paginate: {
+              previous: '<i class="fa fa-angle-left"></i> Previous',
+              next: 'Next <i class="fa fa-angle-right"></i>'
+            },
+            searchPlaceholder: 'Search...',
+            sSearch: '', // Keep empty to not render native input
+            lengthMenu: '_MENU_ items/page',
+            lengthChange: false, // hides "Show X items" dropdown
+
           }
         });
-      });
 
-      $('#modaldemo6').on('shown.bs.modal', function(e) {
+        // Bind custom search input
+        $('#customTableSearch').on('keyup', function() {
+          table.search(this.value).draw();
+        });
 
-        $("#countryU").on('change', function() {
-          var str = $(this).val();
-          if (str.length == 0) {
-            //document.getElementById("stateid").innerHTML = "";
-            $("#stateidU").html("");
-            return;
-          } else {
-            var xmlhttp = new XMLHttpRequest();
-            xmlhttp.onreadystatechange = function() {
-              if (this.readyState == 4 && this.status == 200) {
-                //document.getElementById("stateid").innerHTML = this.responseText;
-                $("#stateidU").html(this.responseText);
-              }
-            };
-            xmlhttp.open("GET", "changestate.php?q=" + str, true);
-            xmlhttp.send();
-          }
+        $('#entriesSelect').on('change', function() {
+          const value = parseInt($(this).val(), 10);
+          table.page.len(value).draw();
+        });
+
+        // Input Masks
+        $('#dateMask').mask('9999-99-99');
+        $('#phoneMask').mask('(999) 999-9999');
+
+        // Enhance select dropdown with Select2
+        $('.dataTables_length select').select2({
+          minimumResultsForSearch: Infinity
         });
       });
+    </script>
 
+    <script>
+      $(function() {
+        'use strict'
 
-    });
-  </script>
+        // FOR DEMO ONLY
+        // menu collapsed by default during first page load or refresh with screen
+        // having a size between 992px and 1299px. This is intended on this page only
+        // for better viewing of widgets demo.
+        $(window).resize(function() {
+          minimizeMenu();
+        });
 
-  <script>
-    $(function() {
-      'use strict';
+        //minimizeMenu();
 
-      $('#datatable1').DataTable({
-        responsive: true,
-        language: {
-          paginate: {
-            previous: '<i class="fa fa-angle-left"></i> Previous',
-            next: 'Next <i class="fa fa-angle-right"></i>'
-          },
-          searchPlaceholder: 'Search...',
-          sSearch: '',
-          lengthMenu: '_MENU_ items/page',
+        function minimizeMenu() {
+          if (window.matchMedia('(min-width: 992px)').matches && window.matchMedia('(max-width: 1299px)').matches) {
+            // show only the icons and hide left menu label by default
+            $('.menu-item-label,.menu-item-arrow').addClass('op-lg-0-force d-lg-none');
+            $('body').addClass('collapsed-menu');
+            $('.show-sub + .br-menu-sub').slideUp();
+          } else if (window.matchMedia('(min-width: 1300px)').matches && !$('body').hasClass('collapsed-menu')) {
+            $('.menu-item-label,.menu-item-arrow').removeClass('op-lg-0-force d-lg-none');
+            $('body').removeClass('collapsed-menu');
+            $('.show-sub + .br-menu-sub').slideDown();
+          }
         }
       });
+    </script>
 
-      // Input Masks
-      $('#dateMask').mask('9999-99-99');
-      $('#phoneMask').mask('(999) 999-9999');
+    <script>
+      function fileValidation3() {
+        var fileInput = document.getElementById('filecsv');
+        var filePath = fileInput.value;
 
-      // Select2
-      $('.dataTables_length select').select2({
-        minimumResultsForSearch: Infinity
-      });
+        // Allowing file type
+        //var allowedExtensions = /(\.doc|\.docx|\.odt|\.pdf|\.tex|\.txt|\.rtf|\.wps|\.wks|\.wpd)$/i;
+        var allowedExtensions = /(\.csv)$/i;
 
-    });
-  </script>
-
-
-  <script>
-    $(function() {
-      'use strict'
-
-      // FOR DEMO ONLY
-      // menu collapsed by default during first page load or refresh with screen
-      // having a size between 992px and 1299px. This is intended on this page only
-      // for better viewing of widgets demo.
-      $(window).resize(function() {
-        minimizeMenu();
-      });
-
-      //minimizeMenu();
-
-      function minimizeMenu() {
-        if (window.matchMedia('(min-width: 992px)').matches && window.matchMedia('(max-width: 1299px)').matches) {
-          // show only the icons and hide left menu label by default
-          $('.menu-item-label,.menu-item-arrow').addClass('op-lg-0-force d-lg-none');
-          $('body').addClass('collapsed-menu');
-          $('.show-sub + .br-menu-sub').slideUp();
-        } else if (window.matchMedia('(min-width: 1300px)').matches && !$('body').hasClass('collapsed-menu')) {
-          $('.menu-item-label,.menu-item-arrow').removeClass('op-lg-0-force d-lg-none');
-          $('body').removeClass('collapsed-menu');
-          $('.show-sub + .br-menu-sub').slideDown();
+        if (!allowedExtensions.exec(filePath)) {
+          alert('Invalid file type. CSV files only allowed');
+          fileInput.value = '';
+          return false;
         }
       }
-    });
-  </script>
 
-  <script>
-    function fileValidation3() {
-      var fileInput = document.getElementById('filecsv');
-      var filePath = fileInput.value;
+      function douser() {
+        var a = document.getElementById('emailid');
+        var b = document.getElementById('uname');
 
-      // Allowing file type
-      //var allowedExtensions = /(\.doc|\.docx|\.odt|\.pdf|\.tex|\.txt|\.rtf|\.wps|\.wks|\.wpd)$/i;
-      var allowedExtensions = /(\.csv)$/i;
-
-      if (!allowedExtensions.exec(filePath)) {
-        alert('Invalid file type. CSV files only allowed');
-        fileInput.value = '';
-        return false;
+        b.value = a.value;
       }
-    }
+    </script>
 
-    function douser() {
-      var a = document.getElementById('emailid');
-      var b = document.getElementById('uname');
+    <!-- add employee -->
+    <div id="addemployee" class="modal fade effect-newspaper">
+      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content tx-size-sm">
+          <div class="modal-header pd-x-20">
+            <h6 class="tx-14 mg-b-0 tx-uppercase tx-inverse tx-bold">Add User Information</h6>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body pd-0">
+            <form id="addemployee2" action="" method="POST">
+              <input type="hidden" name="addp" value="1">
+              <div class="row no-gutters">
+                <div class="col-lg-8 ">
+                  <div class="pd-20 bd-r bd-success">
+                    <h3 class="tx-inverse mg-b-25">Personal Information</h3>
 
-      b.value = a.value;
-    }
-  </script>
+                    <div class="d-flex mg-b-20">
+                      <div class="form-group mg-b-0">
+                        <label>Firstname: <span class="tx-danger">*</span></label>
+                        <input type="text" name="fname" class="form-control" placeholder="First Name" required>
+                      </div><!-- form-group -->
+                      <div class="form-group mg-b-0 mg-l-10">
+                        <label>Middlename: </label>
+                        <input type="text" name="mname" class="form-control" placeholder="Middle Name">
+                      </div><!-- form-group -->
+                      <div class="form-group mg-b-0 mg-l-10">
+                        <label>Lastname: <span class="tx-danger">*</span></label>
+                        <input type="text" name="lname" class="form-control" placeholder="Last Name" required>
+                      </div><!-- form-group -->
+                    </div>
+
+                    <div class="d-flex mg-b-20">
+                      <div class="form-group mg-b-0">
+                        <label>Phone: </label>
+                        <input type="text" name="phone" class="form-control" placeholder="Phone">
+                      </div><!-- form-group -->
+                      <div class="form-group mg-b-0 mg-l-10">
+                        <label>Birth Year <span class="tx-danger">*</span></label>
+                        <input type="date" name="dofb" class="form-control" placeholder="YYYY-MM-DD" id="dateMask"
+                          required>
+                      </div><!-- form-group -->
+                      <div class="form-group mg-b-0 mg-l-10">
+                        <label>Gender: <span class="tx-danger">*</span></label>
+                        <select class="form-control select2 " name="gender" data-placeholder="Choose" required>
+                          <option value="">Choose</option>
+                          <option value="Male">Male</option>
+                          <option value="Female">Female</option>
+                        </select>
+                      </div><!-- form-group -->
+                    </div>
+
+                    <div class="mg-b-20">
+                      <div class="form-group mg-b-0">
+                        <label>Email: <span class="tx-danger">*</span></label>
+                        <input type="email" name="email" id="emailid" class="form-control" placeholder="Email"
+                          onblur="douser()" onchange="douser()" onkeyup="douser()" required>
+                      </div><!-- form-group -->
+                    </div>
+
+                    <div class=" mg-b-20">
+                      <div class="form-group mg-b-0-force">
+                        <label>Address: <span class="tx-danger">*</span></label>
+                        <input type="text" name="address" class="form-control" placeholder="Address" required>
+                      </div><!-- form-group -->
+                    </div>
+
+                    <div class="d-flex mg-b-20">
+                      <div class="form-group mg-b-0">
+                        <label>Next of Kin: <span class="tx-danger">*</span></label>
+                        <input type="text" name="nextofkin" class="form-control" placeholder="Next of Kin" required>
+                      </div><!-- form-group -->
+                      <div class="form-group mg-b-0 mg-l-10">
+                        <label>Next of Kin Relationship: <span class="tx-danger">*</span></label>
+                        <input type="text" name="nextofkinr" class="form-control" placeholder="Next of Kin Relationship"
+                          required>
+                      </div><!-- form-group -->
+                    </div>
+
+                    <div class="d-flex mg-b-20">
+                      <div class="form-group mg-b-0">
+                        <label>Next of Kin Phone No:</label>
+                        <input type="text" name="gphone" class="form-control" placeholder="Next of Kin Phone No">
+                      </div><!-- form-group -->
+                      <div class="form-group mg-b-0 mg-l-10">
+                        <label>Next of Kin Email: </label>
+                        <input type="text" name="gemail" class="form-control" placeholder="Next of Kin Email">
+                      </div><!-- form-group -->
+                    </div>
+
+                    <div class=" mg-b-20">
+                      <div class="form-group mg-b-0-force">
+                        <label>Next of Kin Address: <span class="tx-danger">*</span></label>
+                        <input type="text" name="kinaddress" class="form-control" placeholder="Next of Kin Address">
+                      </div><!-- form-group -->
+                    </div>
+
+                    <div class="d-flex mg-b-20">
+                      <div class="form-group mg-b-0">
+                        <label>Country: <span class="tx-danger">*</span></label>
+                        <select class="form-control select2 " name="country" id="country"
+                          data-placeholder="Choose Country" onchange="ChangeState(this.value)" required>
+                          <option value="">Choose Country</option>
+                          <?php
+                          $intload14gb = mysqli_query($conn, "SELECT * FROM country ORDER BY id asc");
+                          while ($intload14agb = mysqli_fetch_array($intload14gb)) {
+                            $inid14gb = $intload14agb["id"];
+                            $iname14gb = $intload14agb["name"];
+                          ?>
+                            <option value="<?php echo $inid14gb; ?>"><?php echo $iname14gb; ?></option>
+                          <?php
+                          }
+                          ?>
+                        </select>
+
+                      </div><!-- form-group -->
+                      <div class="form-group mg-b-0 mg-l-10" id="stateid">
+                        <label>State: <span class="tx-danger">*</span></label>
+                        <select class="form-control select2 " name="state" data-placeholder="Choose State" required>
+                          <option value="">Choose State</option>
+                        </select>
+                      </div><!-- form-group -->
+                    </div>
+
+                    <div class=" mg-b-0">
+                      <div class="form-group mg-b-0-force">
+                        <label>Profile Picture: </label>
+                        <div class="custom-file">
+                          <input type="file" id="file" name="filename" class="custom-file-input">
+                          <label class="custom-file-label"></label>
+                        </div>
+                      </div><!-- form-group -->
+                    </div>
 
 
+                  </div>
+                </div><!-- col-6 -->
+                <div class="col-lg-4 bg-white">
+                  <div class="pd-20">
+                    <h3 class="tx-inverse mg-b-25">Organisation Information!</h3>
 
-  <!-- add employee -->
-  <div id="addemployee" class="modal fade effect-newspaper">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-      <div class="modal-content tx-size-sm">
-        <div class="modal-header pd-x-20">
-          <h6 class="tx-14 mg-b-0 tx-uppercase tx-inverse tx-bold">Add User Information</h6>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+                    <div class="d-flex mg-b-20">
+                      <div class="form-group mg-b-0">
+                        <label>Unique ID: <span class="tx-danger">*</span></label>
+                        <input type="text" name="uniqid" class="form-control" placeholder="Unique ID"
+                          value="<?php echo $companyref . $coolo; ?>" required readonly>
+                      </div><!-- form-group -->
+                      <div class="form-group mg-l-10 mg-b-0">
+                        <label>User ID: <span class="tx-danger">*</span></label>
+                        <input type="text" id="employeeid" name="employeeid" class="form-control" placeholder="User ID"
+                          required>
+                      </div><!-- form-group -->
+                    </div>
+
+                    <div class="d-flex mg-b-20">
+
+                      <div class="form-group mg-b-0">
+                        <label>Employment Type: <span class="tx-danger">*</span></label>
+                        <select class="form-control select2 " name="employmenttype" data-placeholder="Choose" required>
+                          <option value="">Choose</option>
+                          <?php
+                          $intload14 = mysqli_query($conn, "SELECT * FROM employmenttype ORDER BY id asc");
+                          while ($intload14a = mysqli_fetch_array($intload14)) {
+                            $inid14 = $intload14a["id"];
+                            $iname14 = $intload14a["name"];
+                          ?>
+                            <option value="<?php echo $inid14; ?>"><?php echo $iname14; ?></option>
+                          <?php
+                          }
+                          ?>
+                        </select>
+                      </div><!-- form-group -->
+
+                      <div class="form-group mg-b-0 mg-l-10">
+                        <label>Salary Scale: </label>
+                        <select class="form-control select2 " name="salary" data-placeholder="Choose">
+                          <option value="">Choose</option>
+                          <?php
+                          $intload14h = mysqli_query($conn, "SELECT * FROM salaryscale WHERE company='$companyMain' ORDER BY id asc");
+                          while ($intload14ah = mysqli_fetch_array($intload14h)) {
+                            $inid14h = $intload14ah["id"];
+                            $iname14h = $intload14ah["nickname"];
+                          ?>
+                            <option value="<?php echo $inid14h; ?>"><?php echo $iname14h; ?></option>
+                          <?php
+                          }
+                          ?>
+                        </select>
+                      </div><!-- form-group -->
+
+                    </div>
+
+                    <div class=" mg-b-20">
+                      <div class="form-group mg-b-0-force">
+                        <label>Department: <span class="tx-danger">*</span></label>
+                        <select class="form-control select2 " name="department" data-placeholder="Choose Department">
+                          <option value="">Choose Department</option>
+                          <?php
+                          $intload1 = mysqli_query($conn, "SELECT * FROM departments WHERE status='Active' AND dele='0' AND company='$companyMain' ORDER BY id asc");
+                          while ($intload1a = mysqli_fetch_array($intload1)) {
+                            $inid1 = $intload1a["id"];
+                            $iname1 = $intload1a["departmentname"];
+                          ?>
+                            <option value="<?php echo $inid1; ?>"><?php echo $iname1; ?></option>
+                          <?php
+                          }
+                          ?>
+                        </select>
+                      </div><!-- form-group -->
+                    </div>
+
+                    <div class=" mg-b-20">
+                      <div class="form-group mg-b-0-force">
+                        <label>Work Schedule: <span class="tx-danger">*</span></label>
+                        <select class="form-control select2 " name="workshift" data-placeholder="Choose Work Schedule"
+                          required>
+                          <option value="">Choose Work Schedule</option>
+                          <?php
+                          $intload2 = mysqli_query($conn, "SELECT * FROM workshift WHERE status='Active' AND dele='0' AND company='$companyMain' ORDER BY id asc");
+                          while ($intload2a = mysqli_fetch_array($intload2)) {
+                            $inid2 = $intload2a["id"];
+                            $iname2 = $intload2a["shiftname"];
+                          ?>
+                            <option value="<?php echo $inid2; ?>"><?php echo $iname2; ?></option>
+                          <?php
+                          }
+                          ?>
+                        </select>
+                      </div><!-- form-group -->
+                    </div>
+
+                    <div class=" mg-b-40">
+                      <div class="form-group mg-b-0-force">
+                        <label>Location: <span class="tx-danger">*</span></label>
+                        <select class="form-control select2 " name="location" data-placeholder="Choose Location" required>
+                          <option value="">Choose Location</option>
+                          <?php
+                          $intload3 = mysqli_query($conn, "SELECT * FROM location WHERE status='Active' AND dele='0' AND company='$companyMain' ORDER BY id asc");
+                          while ($intload3a = mysqli_fetch_array($intload3)) {
+                            $inid3 = $intload3a["id"];
+                            $iname3 = $intload3a["locationname"];
+                          ?>
+                            <option value="<?php echo $inid3; ?>"><?php echo $iname3; ?></option>
+                          <?php
+                          }
+                          ?>
+                        </select>
+                      </div><!-- form-group -->
+                    </div>
+
+                    <h3 class="tx-inverse mg-b-15 mg-t-20">Access Information!</h3>
+
+                    <div class="d-flex mg-b-0">
+                      <div class="form-group mg-b-0-force">
+                        <label>User Name: <span class="tx-danger">*</span></label>
+                        <input type="text" id="uname" name="uname" class="form-control" placeholder="User Username"
+                          readonly required>
+                      </div><!-- form-group -->
+                      <div class="form-group mg-l-10 mg-b-0-force">
+                        <label>Password: <span class="tx-danger">*</span></label>
+                        <input type="text" name="pword" class="form-control" placeholder="User Password" required>
+                      </div><!-- form-group -->
+                    </div>
+
+                  </div><!-- pd-20 -->
+                </div><!-- col-6 -->
+              </div><!-- row -->
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary tx-size-xs" form="addemployee2">Save changes</button>
+            <button type="button" class="btn btn-secondary tx-size-xs" data-dismiss="modal">Close</button>
+          </div>
         </div>
-        <div class="modal-body pd-0">
-          <form id="addemployee2" action="" method="POST">
-            <input type="hidden" name="addp" value="1">
-            <div class="row no-gutters">
-              <div class="col-lg-8 ">
-                <div class="pd-20 bd-r bd-success">
-                  <h3 class="tx-inverse mg-b-25">Personal Information</h3>
+      </div><!-- modal-dialog -->
+    </div><!-- modal -->
 
-                  <div class="d-flex mg-b-20">
-                    <div class="form-group mg-b-0">
-                      <label>Firstname: <span class="tx-danger">*</span></label>
-                      <input type="text" name="fname" class="form-control" placeholder="First Name" required>
-                    </div><!-- form-group -->
-                    <div class="form-group mg-b-0 mg-l-10">
-                      <label>Middlename: </label>
-                      <input type="text" name="mname" class="form-control" placeholder="Middle Name">
-                    </div><!-- form-group -->
-                    <div class="form-group mg-b-0 mg-l-10">
-                      <label>Lastname: <span class="tx-danger">*</span></label>
-                      <input type="text" name="lname" class="form-control" placeholder="Last Name" required>
-                    </div><!-- form-group -->
-                  </div>
+    <!-- Edit employee -->
+    <div id="editemployee" class="modal fade effect-newspaper">
+      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content tx-size-sm">
+          <div class="modal-header pd-x-20">
+            <h6 class="tx-14 mg-b-0 tx-uppercase tx-inverse tx-bold">Edit User Information</h6>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body pd-0">
+            <form id="editemployee2" action="" method="POST" enctype="multipart/form-data">
+              <div class="row no-gutters" id="pasteedit">
 
-                  <div class="d-flex mg-b-20">
-                    <div class="form-group mg-b-0">
-                      <label>Phone: </label>
-                      <input type="text" name="phone" class="form-control" placeholder="Phone">
-                    </div><!-- form-group -->
-                    <div class="form-group mg-b-0 mg-l-10">
-                      <label>Birth Year <span class="tx-danger">*</span></label>
-                      <input type="date" name="dofb" class="form-control" placeholder="YYYY-MM-DD" id="dateMask"
-                        required>
-                    </div><!-- form-group -->
-                    <div class="form-group mg-b-0 mg-l-10">
-                      <label>Gender: <span class="tx-danger">*</span></label>
-                      <select class="form-control select2 " name="gender" data-placeholder="Choose" required>
-                        <option value="">Choose</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                      </select>
-                    </div><!-- form-group -->
-                  </div>
-
-                  <div class="mg-b-20">
-                    <div class="form-group mg-b-0">
-                      <label>Email: <span class="tx-danger">*</span></label>
-                      <input type="email" name="email" id="emailid" class="form-control" placeholder="Email"
-                        onblur="douser()" onchange="douser()" onkeyup="douser()" required>
-                    </div><!-- form-group -->
-                  </div>
-
-                  <div class=" mg-b-20">
-                    <div class="form-group mg-b-0-force">
-                      <label>Address: <span class="tx-danger">*</span></label>
-                      <input type="text" name="address" class="form-control" placeholder="Address" required>
-                    </div><!-- form-group -->
-                  </div>
-
-                  <div class="d-flex mg-b-20">
-                    <div class="form-group mg-b-0">
-                      <label>Next of Kin: <span class="tx-danger">*</span></label>
-                      <input type="text" name="nextofkin" class="form-control" placeholder="Next of Kin" required>
-                    </div><!-- form-group -->
-                    <div class="form-group mg-b-0 mg-l-10">
-                      <label>Next of Kin Relationship: <span class="tx-danger">*</span></label>
-                      <input type="text" name="nextofkinr" class="form-control" placeholder="Next of Kin Relationship"
-                        required>
-                    </div><!-- form-group -->
-                  </div>
-
-                  <div class="d-flex mg-b-20">
-                    <div class="form-group mg-b-0">
-                      <label>Next of Kin Phone No:</label>
-                      <input type="text" name="gphone" class="form-control" placeholder="Next of Kin Phone No">
-                    </div><!-- form-group -->
-                    <div class="form-group mg-b-0 mg-l-10">
-                      <label>Next of Kin Email: </label>
-                      <input type="text" name="gemail" class="form-control" placeholder="Next of Kin Email">
-                    </div><!-- form-group -->
-                  </div>
-
-                  <div class=" mg-b-20">
-                    <div class="form-group mg-b-0-force">
-                      <label>Next of Kin Address: <span class="tx-danger">*</span></label>
-                      <input type="text" name="kinaddress" class="form-control" placeholder="Next of Kin Address">
-                    </div><!-- form-group -->
-                  </div>
-
-                  <div class="d-flex mg-b-20">
-                    <div class="form-group mg-b-0">
-                      <label>Country: <span class="tx-danger">*</span></label>
-                      <select class="form-control select2 " name="country" id="country"
-                        data-placeholder="Choose Country" onchange="ChangeState(this.value)" required>
-                        <option value="">Choose Country</option>
-                        <?php
-                        $intload14gb = mysqli_query($conn, "SELECT * FROM country ORDER BY id asc");
-                        while ($intload14agb = mysqli_fetch_array($intload14gb)) {
-                          $inid14gb = $intload14agb["id"];
-                          $iname14gb = $intload14agb["name"];
-                        ?>
-                          <option value="<?php echo $inid14gb; ?>"><?php echo $iname14gb; ?></option>
-                        <?php
-                        }
-                        ?>
-                      </select>
-
-                    </div><!-- form-group -->
-                    <div class="form-group mg-b-0 mg-l-10" id="stateid">
-                      <label>State: <span class="tx-danger">*</span></label>
-                      <select class="form-control select2 " name="state" data-placeholder="Choose State" required>
-                        <option value="">Choose State</option>
-                      </select>
-                    </div><!-- form-group -->
-                  </div>
-
-                  <div class=" mg-b-0">
-                    <div class="form-group mg-b-0-force">
-                      <label>Profile Picture: </label>
-                      <div class="custom-file">
-                        <input type="file" id="file" name="filename" class="custom-file-input">
-                        <label class="custom-file-label"></label>
-                      </div>
-                    </div><!-- form-group -->
-                  </div>
-
-
-                </div>
-              </div><!-- col-6 -->
-              <div class="col-lg-4 bg-white">
-                <div class="pd-20">
-                  <h3 class="tx-inverse mg-b-25">Organisation Information!</h3>
-
-                  <div class="d-flex mg-b-20">
-                    <div class="form-group mg-b-0">
-                      <label>Unique ID: <span class="tx-danger">*</span></label>
-                      <input type="text" name="uniqid" class="form-control" placeholder="Unique ID"
-                        value="<?php echo $companyref . $coolo; ?>" required readonly>
-                    </div><!-- form-group -->
-                    <div class="form-group mg-l-10 mg-b-0">
-                      <label>User ID: <span class="tx-danger">*</span></label>
-                      <input type="text" id="employeeid" name="employeeid" class="form-control" placeholder="User ID"
-                        required>
-                    </div><!-- form-group -->
-                  </div>
-
-                  <div class="d-flex mg-b-20">
-
-                    <div class="form-group mg-b-0">
-                      <label>Employment Type: <span class="tx-danger">*</span></label>
-                      <select class="form-control select2 " name="employmenttype" data-placeholder="Choose" required>
-                        <option value="">Choose</option>
-                        <?php
-                        $intload14 = mysqli_query($conn, "SELECT * FROM employmenttype ORDER BY id asc");
-                        while ($intload14a = mysqli_fetch_array($intload14)) {
-                          $inid14 = $intload14a["id"];
-                          $iname14 = $intload14a["name"];
-                        ?>
-                          <option value="<?php echo $inid14; ?>"><?php echo $iname14; ?></option>
-                        <?php
-                        }
-                        ?>
-                      </select>
-                    </div><!-- form-group -->
-
-                    <div class="form-group mg-b-0 mg-l-10">
-                      <label>Salary Scale: </label>
-                      <select class="form-control select2 " name="salary" data-placeholder="Choose">
-                        <option value="">Choose</option>
-                        <?php
-                        $intload14h = mysqli_query($conn, "SELECT * FROM salaryscale WHERE company='$companyMain' ORDER BY id asc");
-                        while ($intload14ah = mysqli_fetch_array($intload14h)) {
-                          $inid14h = $intload14ah["id"];
-                          $iname14h = $intload14ah["nickname"];
-                        ?>
-                          <option value="<?php echo $inid14h; ?>"><?php echo $iname14h; ?></option>
-                        <?php
-                        }
-                        ?>
-                      </select>
-                    </div><!-- form-group -->
-
-                  </div>
-
-                  <div class=" mg-b-20">
-                    <div class="form-group mg-b-0-force">
-                      <label>Department: <span class="tx-danger">*</span></label>
-                      <select class="form-control select2 " name="department" data-placeholder="Choose Department">
-                        <option value="">Choose Department</option>
-                        <?php
-                        $intload1 = mysqli_query($conn, "SELECT * FROM departments WHERE status='Active' AND dele='0' AND company='$companyMain' ORDER BY id asc");
-                        while ($intload1a = mysqli_fetch_array($intload1)) {
-                          $inid1 = $intload1a["id"];
-                          $iname1 = $intload1a["departmentname"];
-                        ?>
-                          <option value="<?php echo $inid1; ?>"><?php echo $iname1; ?></option>
-                        <?php
-                        }
-                        ?>
-                      </select>
-                    </div><!-- form-group -->
-                  </div>
-
-                  <div class=" mg-b-20">
-                    <div class="form-group mg-b-0-force">
-                      <label>Work Schedule: <span class="tx-danger">*</span></label>
-                      <select class="form-control select2 " name="workshift" data-placeholder="Choose Work Schedule"
-                        required>
-                        <option value="">Choose Work Schedule</option>
-                        <?php
-                        $intload2 = mysqli_query($conn, "SELECT * FROM workshift WHERE status='Active' AND dele='0' AND company='$companyMain' ORDER BY id asc");
-                        while ($intload2a = mysqli_fetch_array($intload2)) {
-                          $inid2 = $intload2a["id"];
-                          $iname2 = $intload2a["shiftname"];
-                        ?>
-                          <option value="<?php echo $inid2; ?>"><?php echo $iname2; ?></option>
-                        <?php
-                        }
-                        ?>
-                      </select>
-                    </div><!-- form-group -->
-                  </div>
-
-                  <div class=" mg-b-40">
-                    <div class="form-group mg-b-0-force">
-                      <label>Location: <span class="tx-danger">*</span></label>
-                      <select class="form-control select2 " name="location" data-placeholder="Choose Location" required>
-                        <option value="">Choose Location</option>
-                        <?php
-                        $intload3 = mysqli_query($conn, "SELECT * FROM location WHERE status='Active' AND dele='0' AND company='$companyMain' ORDER BY id asc");
-                        while ($intload3a = mysqli_fetch_array($intload3)) {
-                          $inid3 = $intload3a["id"];
-                          $iname3 = $intload3a["locationname"];
-                        ?>
-                          <option value="<?php echo $inid3; ?>"><?php echo $iname3; ?></option>
-                        <?php
-                        }
-                        ?>
-                      </select>
-                    </div><!-- form-group -->
-                  </div>
-
-                  <h3 class="tx-inverse mg-b-15 mg-t-20">Access Information!</h3>
-
-                  <div class="d-flex mg-b-0">
-                    <div class="form-group mg-b-0-force">
-                      <label>User Name: <span class="tx-danger">*</span></label>
-                      <input type="text" id="uname" name="uname" class="form-control" placeholder="User Username"
-                        readonly required>
-                    </div><!-- form-group -->
-                    <div class="form-group mg-l-10 mg-b-0-force">
-                      <label>Password: <span class="tx-danger">*</span></label>
-                      <input type="text" name="pword" class="form-control" placeholder="User Password" required>
-                    </div><!-- form-group -->
-                  </div>
-
-                </div><!-- pd-20 -->
-              </div><!-- col-6 -->
-            </div><!-- row -->
-          </form>
+              </div><!-- row -->
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary tx-size-xs" form="editemployee2">Save changes</button>
+            <button type="button" class="btn btn-secondary tx-size-xs" data-dismiss="modal">Close</button>
+          </div>
         </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-primary tx-size-xs" form="addemployee2">Save changes</button>
-          <button type="button" class="btn btn-secondary tx-size-xs" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div><!-- modal-dialog -->
-  </div><!-- modal -->
-
-  <!-- Edit employee -->
-  <div id="editemployee" class="modal fade effect-newspaper">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-      <div class="modal-content tx-size-sm">
-        <div class="modal-header pd-x-20">
-          <h6 class="tx-14 mg-b-0 tx-uppercase tx-inverse tx-bold">Edit User Information</h6>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body pd-0">
-          <form id="editemployee2" action="" method="POST" enctype="multipart/form-data">
-            <div class="row no-gutters" id="pasteedit">
-
-            </div><!-- row -->
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-primary tx-size-xs" form="editemployee2">Save changes</button>
-          <button type="button" class="btn btn-secondary tx-size-xs" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div><!-- modal-dialog -->
-  </div><!-- modal -->
+      </div><!-- modal-dialog -->
+    </div><!-- modal -->
 
 
-  <!-- Group Assign employee -->
-  <div id="assemployeemodal" class="modal fade effect-newspaper">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content tx-size-sm">
-        <div class="modal-header pd-x-20">
-          <h6 class="tx-14 mg-b-0 tx-uppercase tx-inverse tx-bold">Assign User (s)</h6>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body pd-0">
-          <form id="assemployeeshow" action="" method="POST">
-            <div class="row no-gutters">
-              <div class="col-lg-12 bg-white">
-                <div class="pd-20">
-                  <div class=" mg-b-20">
-                    <div class="form-group mg-b-0-force">
-                      <label>Assignment Type: <span class="tx-danger">*</span></label>
-                      <select class="form-control select2" id="atype" name="atype"
-                        data-placeholder="Choose what to assign" onchange="ass(this.value);" required>
-                        <option value="">Choose what to assign</option>
-                        <option value="1">Employment Type</option>
-                        <option value="3">Work (Shift) Schedule</option>
-                        <option value="2">Department</option>
-                        <option value="4">Location</option>
-                        <option value="5">Salary Scale</option>
-                      </select>
-                    </div><!-- form-group -->
+
+    <!-- Group Assign Modal -->
+    <!-- Assign Users Modal -->
+    <div class="modal fade" id="assemployeemodal" tabindex="-1" aria-labelledby="assignUsersModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-md">
+        <div class="modal-content p-4 rounded-3 shadow">
+          <div class="modal-header border-0">
+            <h5 class="modal-title" id="assignUsersModalLabel">Assign User(s)</h5>
+            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <form id="assemployeeshow" method="POST" action="">
+            <div class="modal-body">
+              <!-- Assignment Type -->
+              <div class="mb-4">
+                <label class="form-label fw-semibold">Assignment Type <span class="text-danger">*</span></label>
+                <div class="d-flex flex-wrap gap-3" id="atype">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="atype" value="1" required onchange="ass(this.value)">
+                    <label class="form-check-label">Employment Type</label>
                   </div>
-
-                  <div id="assedit">
-
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="atype" value="2" onchange="ass(this.value)">
+                    <label class="form-check-label">Department</label>
                   </div>
-
-                  <div class=" mg-b-40">
-                    <div class="form-group mg-b-0-force">
-                      <label>Select User: <span class="tx-danger">*</span></label>
-                      <select class="form-control select2" id="fruit_select" name="employee[]"
-                        data-placeholder="Select User(s)" size="10" multiple required>
-                        <?php
-                        $intload3vb = mysqli_query($conn, "SELECT * FROM employee WHERE status='Active' AND dele='0' AND company='$companyMain' ORDER BY lname asc");
-                        while ($intload3avb = mysqli_fetch_array($intload3vb)) {
-                          $inid3vb = $intload3avb["id"];
-                          $lname3vb = $intload3avb["lname"];
-                          $mname3vb = $intload3avb["mname"];
-                          $fname3vb = $intload3avb["fname"];
-                          $employeeid3vb = $intload3avb["employeeid"];
-                        ?>
-                          <option value="<?php echo $inid3vb; ?>">( <?php echo $employeeid3vb; ?> )
-                            <?php echo $lname3vb . " " . $mname3vb . " " . $fname3vb; ?>
-                          </option>
-                        <?php
-                        }
-                        ?>
-                      </select>
-                    </div><!-- form-group -->
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="atype" value="3" onchange="ass(this.value)">
+                    <label class="form-check-label">Work Schedule</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="atype" value="4" onchange="ass(this.value)">
+                    <label class="form-check-label">Location</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="atype" value="5" onchange="ass(this.value)">
+                    <label class="form-check-label">Salary Scale</label>
                   </div>
                 </div>
               </div>
-            </div><!-- row -->
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-primary tx-size-xs" form="assemployeeshow">Assign User(s)</button>
-          <button type="button" class="btn btn-secondary tx-size-xs" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div><!-- modal-dialog -->
-  </div><!-- modal -->
 
-  <div id="modaldemo6" class="modal fade">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-      <div class="modal-content bd-0 bg-transparent rounded overflow-hidden">
-        <div class="modal-body pd-0">
-          <div class="row no-gutters">
-            <div class="col-lg-6 bg-primary">
-              <div class="pd-40">
-                <h4 class="tx-white mg-b-15"><i class="fa fa-bell mg-r-10"></i> inportant Information</h4>
-                <p class="tx-white op-7 mg-b-10">The upload file MUST be a comma seperated CSV file arranged in the
-                  table structure below.</p>
-                <p class="tx-white op-7 mg-b-20">All headers must be removed and first colun must be User ID column.
-                  Check sample file below</p>
-                <p class="tx-white tx-13">
-                  <span class="tx-uppercase tx-medium d-block mg-b-5">Table Structure:</span>
-                  <span class="op-7">
-                    User ID = CSV column[0]</br>
-                    First Name = CSV column[1]</br>
-                    Middle Name = CSV column[2]</br>
-                    Last Name = CSV column[3]</br>
-                    Email Address = CSV column[4]</br>
-                    Full Address = CSV column[5]</br>
-                    Gender = CSV column[6]</br>
-                    Phone Number = CSV column[7]</br>
-                    Next of Kin = CSV column[8]</br>
-                    Date of Birth = CSV column[9]
-                  </span>
-                </p>
-                <div class="mg-t-30 mg-b-0 tx-white tx-12">Sample CSV file? <a href="BIPATAS_sample_file.csv"
-                    class="tx-white" download rel="noopener noreferrer" target="_blank"> Click to Download</a></div>
-              </div>
-            </div><!-- col-6 -->
-            <div class="col-lg-6 bg-white">
-              <div class="pd-30">
-                <form method="POST" action="" enctype="multipart/form-data">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                  <div class="pd-x-30 pd-y-10">
-                    <h3 class="tx-inverse  mg-b-5">Upload Users</h3>
-                    <p>Please read and undersand instructions before upload!</p>
-                    <br>
+              <!-- Dynamically loaded assignment select -->
+              <div id="assedit" class="mb-4"></div>
 
-                    <div class="form-group mg-b-15">
-                      <label>CSV file to upload: <span class="tx-danger">*</span></label>
-                      <input type="file" name="file" id="filecsv" class="form-control pd-y-12"
-                        onchange="return fileValidation3()" required />
-                    </div><!-- form-group -->
+              <!-- Searchable Multi-User Checkbox -->
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Select User(s) <span class="text-danger">*</span></label>
 
-                    <div class="form-group mg-b-15">
-                      <label>Country: <span class="tx-danger">*</span></label>
-                      <select class="form-control select2 " name="country" id="countryU"
-                        data-placeholder="Choose Country" onchange="ChangeStateU(this.value)" required>
-                        <option value="">Choose Country</option>
-                        <?php
-                        $intload14gb = mysqli_query($conn, "SELECT * FROM country ORDER BY id asc");
-                        while ($intload14agb = mysqli_fetch_array($intload14gb)) {
-                          $inid14gb = $intload14agb["id"];
-                          $iname14gb = $intload14agb["name"];
-                        ?>
-                          <option value="<?php echo $inid14gb; ?>"><?php echo $iname14gb; ?></option>
-                        <?php
-                        }
-                        ?>
-                      </select>
-
-                    </div><!-- form-group -->
-                    <div class="form-group mg-b-20" id="stateidU">
-                      <label>State: <span class="tx-danger">*</span></label>
-                      <select class="form-control select2 " name="state" data-placeholder="Choose State" required>
-                        <option value="">Choose State</option>
-                      </select>
-                    </div><!-- form-group -->
-
-                    <input class="btn btn-primary pd-y-12 btn-block" type="submit" name="submit_file"
-                      value="Upload Users" />
-
+                <!-- Search and Select All -->
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <input type="text" class="form-control mb-2 w-50" placeholder="Search users..." onkeyup="filterUsers(this)">
+                  <div class="form-check mb-0">
+                    <input class="form-check-input" type="checkbox" id="selectAll" onclick="toggleAllUsers(this)">
+                    <label class="form-check-label small" for="selectAll">Select All</label>
                   </div>
-                </form>
-              </div><!-- pd-20 -->
-            </div><!-- col-6 -->
-          </div><!-- row -->
+                </div>
 
-        </div><!-- modal-body -->
-      </div><!-- modal-content -->
-    </div><!-- modal-dialog -->
-  </div><!-- modal -->
-
-  <!-- Modal -->
-  <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="modalTitle">Employee Details</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+                <!-- User List -->
+                <div id="userList" class="border rounded p-2" style="max-height: 250px; overflow-y: auto;">
+                  <?php
+                  $users = mysqli_query($conn, "SELECT * FROM employee WHERE status='Active' AND dele='0' AND company='$companyMain' ORDER BY lname ASC");
+                  while ($emp = mysqli_fetch_assoc($users)) {
+                    $id = $emp['id'];
+                    $name = $emp['lname'] . ' ' . $emp['mname'] . ' ' . $emp['fname'];
+                    $empID = $emp['employeeid'];
+                    $pic = !empty($emp['profilepic']) ? '../images/profilepics/' . $emp['profilepic'] : 'https://ui-avatars.com/api/?name=' . urlencode($name) . '&background=0D8ABC&color=fff';
+                    echo '
+      <div class="form-check user-entry d-flex align-items-center gap-2 border-bottom py-2">
+        <img src="' . $pic . '" alt="user" class="rounded-circle" width="36" height="36">
+        <div class="d-flex flex-column flex-grow-1">
+          <label class="form-check-label d-flex align-items-center gap-2 mb-0" for="emp' . $id . '">
+            <input class="form-check-input user-checkbox" type="checkbox" name="employee[]" value="' . $id . '" id="emp' . $id . '" onchange="toggleSelectedState(this)">
+            <span>(' . $empID . ') ' . $name . '</span>
+            <span class="text-black d-none selected-badge"><i class="bi bi-check-circle-fill"></i> Selected</span>
+          </label>
         </div>
-        <div class="modal-body" id="profiledisplay">
+      </div>';
+                  }
+                  ?>
+                </div>
+              </div>
 
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+
+            <div class="modal-footer border-0 pt-0">
+              <button type="submit" class="btn btn-primary" form="assemployeeshow">Assign User(s)</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
-  </div>
+
+
+
+
+    <!-- Import Modal -->
+    <div class="modal fade" id="modaldemo6" tabindex="-1" aria-labelledby="importModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-md modal-dialog-centered">
+        <div class="modal-content rounded-4">
+
+          <!-- Modal Header -->
+          <div class="modal-header border-0">
+            <h3 class="modal-title fw-bold text-dark" id="importModalLabel">Import Employee Info</h3>
+            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <!-- Modal Body -->
+          <div class="modal-body px-4">
+            <form method="POST" action="" enctype="multipart/form-data">
+
+              <!-- Upload Instructions -->
+              <div class="mb-3">
+                <h6 class="fw-bold text-dark">Important information</h6>
+                <p class="text-muted mb-1">The upload file MUST be a comma seperated CSV file arranged in the table structure below.
+                  All headers must be removed and first colun must be User ID column. Check sample file below</p>
+                <ul class="small text-muted ps-3 mb-3">
+                  <li>User ID = CSV column[0]</li>
+                  <li>First Name = CSV column[1]</li>
+                  <li>Middle Name = CSV column[2]</li>
+                  <li>Last Name = CSV column[3]</li>
+                  <li>Email Address = CSV column[4]</li>
+                  <li>Full Address = CSV column[5]</li>
+                  <li>Gender = CSV column[6]</li>
+                  <li>Phone Number = CSV column[7]</li>
+                  <li>Next of Kin = CSV column[8]</li>
+                  <li>Date of Birth = CSV column[9]</li>
+                </ul>
+              </div>
+
+              <!-- CSV File Upload -->
+              <div class="mb-4">
+                <label class="form-label fw-semibold">CSV File <span class="text-danger">*</span></label>
+                <div class="d-flex align-items-center p-3 bg-white border rounded shadow-sm" id="fileContainer">
+                  <img src="https://storage.googleapis.com/tagjs-prod.appspot.com/v1/rKqiLQlii5/yrtdlp90_expires_30_days.png" width="22" height="22" class="me-2" />
+                  <span id="fileName" class="me-auto text-dark">No file chosen</span>
+                  <input type="file" name="file" id="filecsv" class="d-none" onchange="handleFileChange()" required>
+                  <label for="filecsv" class="btn btn-sm btn-light-secondary text-dark me-2 mb-0">Choose File</label>
+                  <button type="button" class="btn btn-sm btn-light-danger d-none" id="deleteBtn" onclick="clearFile()">Delete</button>
+                </div>
+              </div>
+
+              <!-- Country -->
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Country <span class="text-danger">*</span></label>
+                <select class="form-select" name="country" id="countryU" onchange="ChangeStateU(this.value)" required>
+                  <option value="">Choose Country</option>
+                  <?php
+                  $intload14gb = mysqli_query($conn, "SELECT * FROM country ORDER BY id ASC");
+                  while ($intload14agb = mysqli_fetch_array($intload14gb)) {
+                    $inid14gb = $intload14agb["id"];
+                    $iname14gb = $intload14agb["name"];
+                    echo "<option value=\"$inid14gb\">$iname14gb</option>";
+                  }
+                  ?>
+                </select>
+              </div>
+
+              <!-- State -->
+              <div class="mb-4" id="stateidU">
+                <label class="form-label fw-semibold">State <span class="text-danger">*</span></label>
+                <select class="form-select" name="state" required>
+                  <option value="">Choose State</option>
+                </select>
+              </div>
+
+              <!-- Submit -->
+              <button type="submit" name="submit_file" class="btn btn-primary text-white w-100 py-3 fw-bold rounded-pill">
+                Upload Users
+              </button>
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTitle">Employee Details</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="profiledisplay">
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+
+
+  <!-- JS for file preview & delete -->
+  <script>
+    function handleFileChange() {
+      const fileInput = document.getElementById('filecsv');
+      const fileName = document.getElementById('fileName');
+      const deleteBtn = document.getElementById('deleteBtn');
+
+      if (fileInput.files.length > 0) {
+        fileName.textContent = fileInput.files[0].name;
+        deleteBtn.classList.remove('d-none');
+      } else {
+        fileName.textContent = "No file chosen";
+        deleteBtn.classList.add('d-none');
+      }
+    }
+
+    function clearFile() {
+      const fileInput = document.getElementById('filecsv');
+      const fileName = document.getElementById('fileName');
+      const deleteBtn = document.getElementById('deleteBtn');
+
+      fileInput.value = '';
+      fileName.textContent = "No file chosen";
+      deleteBtn.classList.add('d-none');
+    }
+
+    // $(document).ready(function() {
+    //   $('.select2').select2({
+    //     dropdownParent: $('#assemployeemodal')
+    //   });
+    // });
+
+    function toggleAllUsers(source) {
+      const checkboxes = document.querySelectorAll('.user-checkbox');
+      checkboxes.forEach(cb => {
+        cb.checked = source.checked;
+        toggleSelectedState(cb);
+      });
+    }
+
+    function toggleSelectedState(checkbox) {
+      const badge = checkbox.closest('label').querySelector('.selected-badge');
+      if (checkbox.checked) {
+        badge.classList.remove('d-none');
+      } else {
+        badge.classList.add('d-none');
+      }
+    }
+
+    function filterUsers(input) {
+      const filter = input.value.toLowerCase().trim();
+
+      document.querySelectorAll('#userList .user-entry').forEach(entry => {
+        const spans = entry.querySelectorAll('label span');
+        let nameText = '';
+        spans.forEach(span => {
+          if (!span.classList.contains('selected-badge')) {
+            nameText = span.innerText.toLowerCase();
+          }
+        });
+
+        entry.style.display = nameText.includes(filter) ? '' : 'none';
+      });
+    }
+  </script>
+
+  <!-- Select2 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+  <!-- Select2 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+  <script>
+    // Initialize Select2
+    $(document).ready(function() {
+      $('.select2').select2({
+        dropdownParent: $('#assemployeemodal'),
+        width: '100%'
+
+      });
+    });
+  </script>
 
 </body>
 
